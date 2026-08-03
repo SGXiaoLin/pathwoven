@@ -1,0 +1,1720 @@
+{
+  "id": "three-kingdoms",
+  "title": "Three Kingdoms: Banner",
+  "locale": "en",
+  "version": 2,
+  "estimatedMinutes": 50,
+  "narrative": {
+    "person": "second",
+    "knowledge": "limited",
+    "locked": true,
+    "notes": "Address the player as a wandering strategist. Stay in their senses and what they can fairly infer. Do not enter Cao Cao, Liu Bei, or Sun Quan's inner monologue. Expansions must keep this POV."
+  },
+  "startNodeId": "age_of_chaos",
+  "variables": {
+    "ambition": {
+      "type": "number",
+      "default": 45,
+      "min": 0,
+      "max": 100
+    },
+    "loyalty": {
+      "type": "number",
+      "default": 50,
+      "min": 0,
+      "max": 100
+    },
+    "cunning": {
+      "type": "number",
+      "default": 40,
+      "min": 0,
+      "max": 100
+    },
+    "wei_banner": {
+      "type": "boolean",
+      "default": false
+    },
+    "shu_banner": {
+      "type": "boolean",
+      "default": false
+    },
+    "wu_banner": {
+      "type": "boolean",
+      "default": false
+    },
+    "chi_bi_won": {
+      "type": "boolean",
+      "default": false
+    },
+    "late_gambit": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "endings": [
+    "ending_wei_mandate",
+    "ending_wei_north",
+    "ending_wei_ashes",
+    "ending_shu_han_restored",
+    "ending_shu_holdfast",
+    "ending_shu_fall",
+    "ending_wu_tide",
+    "ending_wu_truce",
+    "ending_wu_reef"
+  ],
+  "nodes": {
+    "age_of_chaos": {
+      "id": "age_of_chaos",
+      "type": "scene",
+      "title": "An Age Without a Center",
+      "body": "The Han still presses its seals into wet clay, and clerks still write the emperor's reign-year as if ink could hold a roof up. You know better. In the counties you have crossed this month, the Yellow Turban war left fields black at the edges and temples missing their doors. Bandits wear old army jackets. Magistrates collect tax twice and call the second collection \"loyalty.\"\n\nLuoyang and Chang'an live in every mouth like a shared nightmare. People speak of Dong Zhuo the way sailors speak of a reef: not with curiosity, but with the memory of wood splitting. The capital can burn. The empire can limp. The lesson stuck harder than any edict.\n\nOn the northern plains, Yuan Shao's name still rides ahead of his banners. In Xuchang, Cao Cao builds a machine of clerks and cavalry that answers faster than any throne. West and south, Liu Bei travels with a claim thin as paper and a courtesy thick enough to shame richer men. Along the Yangtze, the Sun house binds Jiangdong with ships, cousins, and a patience that looks like kindness until you count the spears.\n\nYou are a strategist without a master. Your satchel holds maps inked on both sides, a broken seal from a lord who died of \"fever,\" and a letter of introduction that has outlived three patrons. Dust tastes like iron. At night you hear carts and weeping in the same rhythm.\n\nBefore any banner can use you, you must decide what this age is—collapse wearing a crown, or a wound that still believes it can close.",
+      "choices": [
+        {
+          "id": "c_name_the_age",
+          "text": "Admit the Han Is Already Dividing",
+          "next": "wandering_road",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_still_hope",
+          "text": "Swear the Han Can Still Be Mended",
+          "next": "wandering_road",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    },
+    "wandering_road": {
+      "id": "wandering_road",
+      "type": "scene",
+      "title": "The Road That Sells Rumors",
+      "body": "You take the post road east of the ruined relay stations. A peddler swears Cao Cao pays in grain that does not rot. A monk swears Liu Bei weeps for strangers and means it. A boatman swears Sun Quan's river can swallow a northern army whole and spit back only helmets.\n\nNear a ferry, you watch a skirmish that is not quite a battle: twenty horsemen, a burning granary, farmers kneeling with empty hands. No side announces a cause. The smoke writes its own manifesto across the afternoon.\n\nThat night an old clerk shares your fire. He once stamped documents for a prefect who vanished. \"Choose carefully,\" he says, not looking at you. \"In this age, counsel is a kind of sword. The wrong lord will sharpen you until there is nothing left but edge.\"\n\nAt dawn three messengers find you almost together, as if the map itself had grown impatient.",
+      "choices": [
+        {
+          "id": "c_meet_envoys",
+          "text": "Receive the Three Envoys at Once",
+          "next": "choose_banner",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_ask_clerk",
+          "text": "Question the Old Clerk Before You Answer",
+          "next": "choose_banner",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "choose_banner": {
+      "id": "choose_banner",
+      "type": "scene",
+      "title": "Three Banners on the Horizon",
+      "body": "The Xuchang envoy smells of wet ink and horse oil. He does not flatter. He lays out a strip-map of the Huai and asks, almost politely, whether you can shorten a war or only decorate one.\n\nLiu Bei's man arrives with rice, a patched cloak, and talk of restoring the house of Liu. He speaks as if virtue were logistics. Behind him, you glimpse scarred escorts who have learned to smile for diplomacy and kill for breakfast.\n\nSun Quan's clerk carries river charts and a tally of grain that would make a northern general jealous. \"Keep Jiangdong unbroken,\" he says, \"and history will invent a kinder name for what we do.\"\n\nRain starts—thin, insistent. You may serve only one. The other two will become your problem, your mirror, or your grave.\n\nWhose banner do you raise?",
+      "choices": [
+        {
+          "id": "c_choose_wei",
+          "text": "Ride for Cao Cao and the North",
+          "next": "wei_xuchang",
+          "effects": [
+            {
+              "op": "set",
+              "key": "wei_banner",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            }
+          ]
+        },
+        {
+          "id": "c_choose_shu",
+          "text": "Join Liu Bei and the Han Claim",
+          "next": "shu_oath",
+          "effects": [
+            {
+              "op": "set",
+              "key": "shu_banner",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            }
+          ]
+        },
+        {
+          "id": "c_choose_wu",
+          "text": "Take Service with Sun Quan in the East",
+          "next": "wu_jianye",
+          "effects": [
+            {
+              "op": "set",
+              "key": "wu_banner",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    },
+    "wei_xuchang": {
+      "id": "wei_xuchang",
+      "type": "scene",
+      "title": "Xuchang Under Tight Rein",
+      "body": "Xuchang smells of wet ink, horse sweat, cooking oil, and the sharp cleanliness of fear kept busy. Cao Cao's clerks move like a second army: brushes flashing, seals thudding, runners vanishing between gates. You are received without ceremony—a short nod, a longer stare, a question about grain routes before anyone bothers to repeat your name.\n\nIn the outer court, officers argue over a captured letter from Hebei. In the inner rooms, maps of the south already peek from under heavier maps of the north, as if appetite were trying to climb out of the drawer.\n\n\"The north is almost quiet,\" an adjutant tells you, pouring tea that tastes of iron pans. \"Almost is the word that kills campaigns. Yuan's cousins still twitch. The gentry smile with tax ledgers behind their teeth. And south of the river, Liu and Sun count our sails for sport.\"\n\nCao Cao himself appears between meetings like weather. He asks what you have seen on the roads—not what you admire. When you answer, he listens with the stillness of a man weighing whether you are a tool, a risk, or both.\n\nHow do you first prove you are not merely another mouth at the trough?",
+      "choices": [
+        {
+          "id": "c_wei_maps",
+          "text": "Lay Out a Plan to Finish Hebei",
+          "next": "wei_hebei",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_listen",
+          "text": "Walk the Granaries Before You Speak",
+          "next": "wei_hebei",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    },
+    "wei_hebei": {
+      "id": "wei_hebei",
+      "type": "scene",
+      "title": "Hebei Still Twitches",
+      "body": "You ride north under Cao colors. The plains look harvested by war: wells broken, watchtowers half-rebuilt, villages that clap for every army and mean it for none. At night, Yuan loyalists cut a courier line and leave the heads arranged like punctuation.\n\nA local magnate hosts you with too much wine and too many questions about Cao Cao's temper. His son watches your sword hand. You sleep lightly and wake to the sound of your own escort practicing silence.\n\nIn a muddy town square, a woman throws a handful of grain at your boots—not as insult, but as plea. \"Leave us one harvest,\" she says. An officer laughs. Another does not.\n\nCao's captains want speed. The land wants breath. Your next counsel will decide which hunger eats first—and how bloody the \"almost quiet\" north becomes.",
+      "choices": [
+        {
+          "id": "c_wei_hebei_hard",
+          "text": "Order Swift Strikes on Every Yuan Holdout",
+          "next": "wei_guandu",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_hebei_soft",
+          "text": "Buy Grain Peace and Isolate the Hardliners",
+          "next": "wei_guandu",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_hebei_trap",
+          "text": "Feign Retreat and Ambush Their Night Riders",
+          "next": "wei_guandu",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "wei_guandu": {
+      "id": "wei_guandu",
+      "type": "scene",
+      "title": "After the North Bends",
+      "body": "Guandu is already a story soldiers tell with wine and missing fingers. Yuan's lines broke; Cao's name thickened into something like weather. Now the question is not victory—it is appetite, and whether appetite can be governed.\n\nIn the command tent, Hebei maps lie under oil lamps until the oil smells sweeter than truth. Some generals want every Yuan cousin hunted to the last keep, their names scraped off ancestral tablets. Scholars beg for soft hands so the north will tax itself willingly and write poems about order. A few voices already glance south, hungry for the Yangtze as if rivers were merely wet roads.\n\nOutside, a courier arrives foam-mouthed: Liu Bei has been seen near Jingzhou's soft counties; Sun Quan's shipyards never sleep. Cao Cao waits for your counsel as if it were another weapon on the table—useful, dangerous, and expected to cut.\n\nWhat do you urge while the north is still warm from bending?",
+      "choices": [
+        {
+          "id": "c_wei_purge",
+          "text": "Urge a Hard Sweep of Hebei",
+          "next": "wei_huai_fever",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_settle",
+          "text": "Counsel Mercy to Bind the Gentry",
+          "next": "wei_huai_fever",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_south_early",
+          "text": "Push Eyes South Before the North Cools",
+          "next": "wei_huai_fever",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    "wei_huai_fever": {
+      "id": "wei_huai_fever",
+      "type": "scene",
+      "title": "Fever Along the Huai",
+      "body": "The southern talk becomes a southern muster. Camps bloom along the Huai like a rash. New conscripts learn drill between coughing fits; veterans spit blood and call it \"river weather.\" Pitch barrels line the banks. Officers swear Jingzhou will fall if courage simply outruns caution by one night.\n\nYou walk the shipyards and hear two truths at once: the fleet is magnificent, and the fleet is a floating hospital. A doctor shows you a tally of fever dead that no victory poem will ever print. A young captain shows you chained ships and grins as if iron could forbid fire.\n\nLetters arrive from the south—some forged, some merely optimistic. One promises defection. One promises wind. One promises that Sun and Liu hate each other more than they fear Cao Cao. You cannot tell which lie is the expensive one.\n\nThe campaign is no longer a theory. It is a fever with banners. Cao Cao will ask what you would stake the Mandate on—and the river is already listening.",
+      "choices": [
+        {
+          "id": "c_wei_huai_ignore",
+          "text": "Dismiss the Fever Talk as Cowardice",
+          "next": "wei_chi_bi",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_huai_prep",
+          "text": "Demand Quarantine Lines and Split Reserves",
+          "next": "wei_chi_bi",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_huai_spies",
+          "text": "Spend Silver on Better Southern Spies",
+          "next": "wei_chi_bi",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 15
+            }
+          ]
+        }
+      ]
+    },
+    "wei_chi_bi": {
+      "id": "wei_chi_bi",
+      "type": "scene",
+      "title": "Smoke Over the Southern Water",
+      "body": "At the southern water the world narrows to wind, rope, and rumor. Chains of ships grind against one another. Drums argue with gulls. On the bank you smell pitch, wet wood, and the metallic breath of men who have stopped sleeping.\n\nAdvisers cluster like flies on a wound. One captain swears the south will kneel in a month. Another swears the fleet is a floating funeral waiting for a match. Talk of disease returns, then talk of glory, then talk of the Sun-Liu alliance as if alliance were a weather system you could insult into breaking.\n\nCao Cao stands where the maps stop being polite. He asks—not theatrically, not softly—what you would risk for a southern surrender written in a single season.\n\nYour answer will become fire, delay, or a slower kind of knife.",
+      "choices": [
+        {
+          "id": "c_wei_force_south",
+          "text": "Urge an Immediate Crossing in Force",
+          "next": "wei_river_news",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "c_wei_heed_caution",
+          "text": "Beg Delay and Split the Fleet",
+          "next": "wei_river_news",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -5
+            },
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "c_wei_feign_peace",
+          "text": "Offer Terms and Bleed Them with Time",
+          "next": "wei_river_news",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            },
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "wei_river_news": {
+      "id": "wei_river_news",
+      "type": "scene",
+      "title": "News That Climbs Like Smoke",
+      "body": "News climbs north slower than smoke and arrives already argued with.\n\nIf the crossing was forced, survivors speak of fire walking on water—ships becoming lanterns, lanterns becoming graves. They speak of an alliance that held one night longer than northern pride. Men who left as conquerors return as rumor, eyes emptied by light.\n\nIf caution or patience won, the northern granaries still stand and the south remains a problem with a calendar. Yet even then the court tastes ash: opportunities rot; rivals toast your prudence as if it were cowardice wearing a clean robe.\n\nIn Xuchang's lanes, street singers invent verses before the official report is dry. One verse calls you savior. One calls you the man who taught Cao Cao to fear boats. You sleep poorly either way.\n\nCao Cao summons you before the jokes harden into policy.",
+      "choices": [
+        {
+          "id": "c_wei_own_report",
+          "text": "Deliver the Hard Truth Without Softening",
+          "next": "wei_aftermath",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_spin_report",
+          "text": "Frame the Outcome as a Step Toward Later Victory",
+          "next": "wei_aftermath",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "wei_aftermath": {
+      "id": "wei_aftermath",
+      "type": "scene",
+      "title": "What the River Gave Back",
+      "body": "The northern machine does not stop; it limps with purpose. Repairs, promotions, executions for \"confusion,\" and a fresh stack of southern maps that pretend not to smell of burnt pitch.\n\nYou are asked to name the next shape of Wei: rebuild until the south forgets how to celebrate, or strike again before grief becomes doctrine. Outside the hall, a veteran with a melted cheek salutes you and says nothing. That silence weighs more than any memorial.\n\nCao Cao's sons are beginning to stand closer to the inkstones. The Han forms still decorate the court like expensive wallpaper. Everyone can see the wallpaper peeling. Not everyone agrees what wall should replace it.\n\nChoose the tempo of the years that follow.",
+      "choices": [
+        {
+          "id": "c_wei_rebuild",
+          "text": "Rebuild the North and Wait Out the South",
+          "next": "wei_west_pressure",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_press_again",
+          "text": "Plan Another Southern Strike Within Two Years",
+          "next": "wei_west_pressure",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    "wei_west_pressure": {
+      "id": "wei_west_pressure",
+      "type": "scene",
+      "title": "Dust from the Western Passes",
+      "body": "While eyes stay fixed on the Yangtze, dust arrives from the west. Reports speak of Liu Bei hardening inside Yi, of Hanzhong becoming a fist around the Qin roads, of Wei flank garrisons eating fear with their millet.\n\nA general urges you to ignore \"mountain theater\" and keep every spear pointed south. A quartermaster begs for reinforcements before a western raid turns into a second front. At a night market you overhear soldiers betting which direction will kill them first—river or pass—and laughing so they do not have to choose.\n\nThis is the ugly gift of success and failure alike: enemies learn your outline. Wei can still master the central plains, or it can stretch until the center thins into rumor.\n\nWhere do you spend the state's remaining heat?",
+      "choices": [
+        {
+          "id": "c_wei_west_reinforce",
+          "text": "Shift Strength to the Western Passes",
+          "next": "wei_succession",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_west_ignore",
+          "text": "Keep the Main Weight on the Southern Problem",
+          "next": "wei_succession",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_west_diplomacy",
+          "text": "Buy Time with Western Truces and Bribes",
+          "next": "wei_succession",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "wei_succession": {
+      "id": "wei_succession",
+      "type": "scene",
+      "title": "A New Name for Old Power",
+      "body": "Years thin the old titles the way river water thins blood. Cao Cao's shadow lengthens into his sons' arguments; courtiers whisper that Han forms are a costume the north has outgrown. You hear the word Wei spoken first as geography, then as destiny, then as a dare.\n\nA banquet ends with a smashed cup and a poem that is not really about wine. The next morning, three memorials arrive on your desk: one urging a clean dynastic break; one begging to keep the Han mask for legitimacy; one—anonymous—suggesting you retire before your name is carved into either lie.\n\nYou stand where counsel becomes history. The clerks already prepare ink for whichever future you bless. Outside, autumn maps wait like unfinished verdicts.",
+      "choices": [
+        {
+          "id": "c_wei_cao_pi",
+          "text": "Back a Formal Wei Dynasty Now",
+          "next": "wei_reckoning",
+          "effects": [
+            {
+              "op": "set",
+              "key": "late_gambit",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 15
+            }
+          ]
+        },
+        {
+          "id": "c_wei_slow_throne",
+          "text": "Urge Restraint and Keep the Han Mask",
+          "next": "wei_reckoning",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_wei_retire",
+          "text": "Ask Leave and Ride Beyond Court",
+          "next": "wei_reckoning",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -10
+            }
+          ]
+        }
+      ]
+    },
+    "wei_reckoning": {
+      "id": "wei_reckoning",
+      "type": "scene",
+      "title": "Wei at the Ledger's Edge",
+      "body": "Autumn covers the table: north secure or north scarred, south burning or south waiting, west quiet or west grinning. Your advice has become the grain of Cao policy—whether that grain feeds an empire or a pyre.\n\nThere is no more rehearsal. A clerk lifts his brush and pauses, as if even paperwork can feel dread. The age will record which Wei you helped make.",
+      "choices": [
+        {
+          "id": "c_wei_to_end",
+          "text": "Close the Book on Your Service",
+          "next": [
+            {
+              "when": [
+                {
+                  "op": "gte",
+                  "key": "ambition",
+                  "value": 70
+                },
+                {
+                  "op": "gte",
+                  "key": "cunning",
+                  "value": 55
+                },
+                {
+                  "op": "truthy",
+                  "key": "chi_bi_won"
+                },
+                {
+                  "op": "truthy",
+                  "key": "late_gambit"
+                }
+              ],
+              "goto": "ending_wei_mandate"
+            },
+            {
+              "when": [
+                {
+                  "op": "gte",
+                  "key": "ambition",
+                  "value": 65
+                },
+                {
+                  "op": "lt",
+                  "key": "cunning",
+                  "value": 45
+                }
+              ],
+              "goto": "ending_wei_ashes"
+            },
+            {
+              "when": [
+                {
+                  "op": "eq",
+                  "key": "chi_bi_won",
+                  "value": false
+                }
+              ],
+              "goto": "ending_wei_ashes"
+            }
+          ],
+          "else": "ending_wei_north"
+        }
+      ]
+    },
+    "shu_oath": {
+      "id": "shu_oath",
+      "type": "scene",
+      "title": "Firelight and a Thin Claim",
+      "body": "Liu Bei's camp is poorer than its speeches and richer than its ledgers admit. Peach-wood talk still hangs in the air—brotherhood as policy, courtesy as armor. Guan Yu oils his blade in a silence that feels like a held breath. Zhang Fei laughs too loud at jokes that are not jokes, then goes quiet when the fire pops.\n\nYou are given wine in a chipped cup, a stool that rocks, and a question asked without theater: will you help mend the Han, or only help a wandering uncle survive winter?\n\nA boy brings news of a burned village two ridges over. Liu Bei listens as if the boy were a minister. That habit will either save this army or drown it in other people's grief.\n\nBeyond the tents, Jingzhou's fields wait like an unanswered letter. You can already feel the alliances forming in the dark—some of them useful, none of them clean.",
+      "choices": [
+        {
+          "id": "c_shu_vow",
+          "text": "Vow Counsel Until the Han Stands Again",
+          "next": "shu_xinye",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_shu_practical",
+          "text": "Promise Useful Plans, Not Sacred Oaths",
+          "next": "shu_xinye",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    "shu_xinye": {
+      "id": "shu_xinye",
+      "type": "scene",
+      "title": "Xinye and the Cost of Courtesy",
+      "body": "In Xinye the army eats thin and sleeps thinner. Refugees arrive with Cao Cao's shadow behind them—not yet an army, but the rumor of one, which is sometimes worse. You spend nights redrawing escape routes that look like prayers written as roads.\n\nA local elder kneels and begs Liu Bei to stay and die with them. A scout begs him to leave before dawn. Guan Yu says little; his stillness argues for dignity that can also become delay. Zhang Fei wants a fight large enough to silence fear.\n\nThen the real storm comes: northern banners on the horizon, smoke where granaries were, and a retreat that must be ordered while people are still calling Liu Bei savior. You taste ash and know this is the tuition fee of virtue in a collapsing age.\n\nIf Shu is to become more than a moving apology, it must choose where to plant its next risk.",
+      "choices": [
+        {
+          "id": "c_shu_cover_retreat",
+          "text": "Organize the Retreat and Guard the People",
+          "next": "shu_jingzhou",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_shu_strike_rear",
+          "text": "Risk a Rear-Guard Ambush to Buy Hours",
+          "next": "shu_jingzhou",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_shu_speed_south",
+          "text": "Cut Loose and Race for the River Lands",
+          "next": "shu_jingzhou",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    "shu_jingzhou": {
+      "id": "shu_jingzhou",
+      "type": "scene",
+      "title": "Jingzhou, Borrowed and Contested",
+      "body": "Jingzhou feeds armies and arguments in equal measure. Sun Quan's envoys smile with careful teeth. Cao Cao's scouts mark every ford as if water itself were a witness. Liu Bei holds hospitality like a fortress and asks you which wall to build first.\n\nYou walk markets where Jingzhou grain becomes everyone else's future. A Wu clerk \"accidentally\" leaves a map showing which counties Sun Quan already counts as overdue. A Shu officer whispers that kinship is a nice word for occupation. Between them, Cao Cao's pressure makes every courtesy smell like strategy.\n\nAlly east and burn Cao's pride together? Grasp Jingzhou as if righteousness were a deed of title? Or leave the river quarrel and strike west into Yi before someone else eats the map whole?\n\nThe province is borrowed breath. Your counsel decides who gets to exhale.",
+      "choices": [
+        {
+          "id": "c_shu_ally_wu",
+          "text": "Bind Wu Tight and Face Cao Together",
+          "next": "shu_after_jing",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            },
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "c_shu_seize_jing",
+          "text": "Treat Jingzhou as Shu's by Right",
+          "next": "shu_after_jing",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "c_shu_yi_first",
+          "text": "Leave the River Fight and Take Yi First",
+          "next": "shu_after_jing",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    },
+    "shu_after_jing": {
+      "id": "shu_after_jing",
+      "type": "scene",
+      "title": "After the Bargain, the Blade",
+      "body": "Whatever you urged, Jingzhou answers in complications.\n\nIf alliance held, fire and fellowship bruise Cao Cao's southern pride—and Wu begins smiling like a creditor. If Jingzhou was grasped tightly, the province fills Shu bellies while emptying Shu friendships; night messengers from the east stop bringing wine and start bringing inventories. If you turned west early, the river behind you becomes a rumor of missed miracles and saved disasters.\n\nYou spend a week reading letters that contradict each other and are all somehow true. Guan Yu's name grows heavier on the roads. Liu Bei asks, almost gently, whether you still sleep.\n\nA state cannot live forever on borrowed counties and borrowed trust. Yi Province glitters west like a locked granary. The key will cost blood either way.",
+      "choices": [
+        {
+          "id": "c_shu_push_yi",
+          "text": "Commit to the Western Campaign into Yi",
+          "next": "shu_chengdu",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_shu_heal_jing",
+          "text": "Spend a Season Healing Jingzhou's Politics",
+          "next": "shu_chengdu",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    "shu_chengdu": {
+      "id": "shu_chengdu",
+      "type": "scene",
+      "title": "Chengdu's Gates Open",
+      "body": "Yi Province folds—not cleanly, never cleanly. There are broken promises in the foothills, quiet executions in side courtyards, and markets that reopen as if spice could erase siege. Chengdu's walls finally take Liu Bei's colors. Clerks invent new taxes with old smiles. Children stare at your horse as if it were a moving omen.\n\nYou walk streets that smell of rain on stone and pepper. The Han claim now has a capital that is not a rumor. Zhuge Liang's desks overflow with memorials; generals ask when the north will learn fear; widows ask when fear will learn to leave.\n\nAt dusk, from a tower, you see both prosperity and the thinness under it. Birth is the easy miracle. Keeping a newborn state alive through its first winters of envy—that is the work that breaks counselors or crowns them.",
+      "choices": [
+        {
+          "id": "c_shu_settle_yi",
+          "text": "Spend Years Settling Law and Grain",
+          "next": "shu_hanzhong",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_shu_eyes_north",
+          "text": "Turn Every Surplus Toward a Northern War",
+          "next": "shu_hanzhong",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "shu_hanzhong": {
+      "id": "shu_hanzhong",
+      "type": "scene",
+      "title": "Hanzhong Closes Its Fist",
+      "body": "Hanzhong is not merely a valley; it is a fist closed around the Qin roads. The campaign for it tastes of fog, cliff paths, and supply trains that vanish into weather. Wei banners appear and disappear like a migraine.\n\nYou stand in a command post where one missed convoy means a week of hunger. A scout returns with a Wei officer's seal and a story that does not match the seal. Someone is lying skillfully. Someone else is dying honestly.\n\nWhen Hanzhong finally bends to Shu, the cheer is short. Everyone understands what the fist implies: a road north toward the old heartlands—and a road for enemies to punch back. Liu Bei looks older in victory than in flight.\n\nThe question is no longer whether Shu can hold a province. It is whether Shu can survive wanting the empire.",
+      "choices": [
+        {
+          "id": "c_shu_han_fortify",
+          "text": "Turn Hanzhong into an Unbreakable Gate",
+          "next": "shu_northern",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_shu_han_springboard",
+          "text": "Treat Hanzhong as a Springboard North",
+          "next": "shu_northern",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "shu_northern": {
+      "id": "shu_northern",
+      "type": "scene",
+      "title": "The Road Out of Hanzhong",
+      "body": "Beyond Hanzhong: Wei beacons, dusty passes, and the old dream of restoring the Han in Luoyang's ruined light. Zhuge Liang's memorials speak of duty with a clarity that can feel like a blade. Veterans speak of empty stomachs with a clarity that feels like prophecy.\n\nEnvoys from Wu arrive smelling of river salt and unfinished arguments about Jingzhou. One offers renewed alliance. One offers warnings dressed as friendship. In the camp, a young officer weeps after a training accident and tries to hide it; war has not yet taught him which tears are allowed.\n\nYou must choose whether Shu spends its life on one great throw, digs into the mountains and calls endurance righteousness, or swallows pride and courts Wu again before the north finishes learning your routes.",
+      "choices": [
+        {
+          "id": "c_shu_all_in",
+          "text": "Stake the State on a Northern Expedition",
+          "next": "shu_winter_camp",
+          "effects": [
+            {
+              "op": "set",
+              "key": "late_gambit",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_shu_hold_han",
+          "text": "Hold Hanzhong and Refuse a Ruinous March",
+          "next": "shu_winter_camp",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -10
+            }
+          ]
+        },
+        {
+          "id": "c_shu_realign_wu",
+          "text": "Reopen Envoys and Rebind Wu",
+          "next": "shu_winter_camp",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "shu_winter_camp": {
+      "id": "shu_winter_camp",
+      "type": "scene",
+      "title": "Winter Counts the Cost",
+      "body": "Winter arrives with the honesty of cold. If the northern roads were taken, you hear both triumph and the accounting that follows triumph: missing companies, broken carts, victories that cannot be garrisoned. If the mountains were held, you hear merchants praise stability while young captains spit at \"coward maps.\" If Wu was rebound, you hear toasts that taste like debt.\n\nIn Chengdu, temple smoke and campaign dust share the same evening. A child asks whether the Han has won yet. No one answers quickly enough.\n\nLiu Bei's house has land, generals, and a story that still calls itself Han. Your counsel sits in the grain counts and the graves. What remains is carrying those ledgers into the last judgment of your service.",
+      "choices": [
+        {
+          "id": "c_shu_face_end",
+          "text": "Carry the Winter Ledgers to Court",
+          "next": "shu_reckoning",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_shu_walk_walls",
+          "text": "Walk Chengdu's Walls One Last Night",
+          "next": "shu_reckoning",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "shu_reckoning": {
+      "id": "shu_reckoning",
+      "type": "scene",
+      "title": "Shu Weighs Its Name",
+      "body": "Temple bells and quartermaster abacus beads share the same Chengdu dusk. The western state has become real enough to disappoint its own legends.\n\nYour years of counsel are no longer advice; they are climate. What remains is the ending the west will have to live with.",
+      "choices": [
+        {
+          "id": "c_shu_to_end",
+          "text": "Accept the Verdict of the Years",
+          "next": [
+            {
+              "when": [
+                {
+                  "op": "gte",
+                  "key": "loyalty",
+                  "value": 65
+                },
+                {
+                  "op": "truthy",
+                  "key": "chi_bi_won"
+                },
+                {
+                  "op": "truthy",
+                  "key": "late_gambit"
+                },
+                {
+                  "op": "gte",
+                  "key": "ambition",
+                  "value": 55
+                }
+              ],
+              "goto": "ending_shu_han_restored"
+            },
+            {
+              "when": [
+                {
+                  "op": "eq",
+                  "key": "chi_bi_won",
+                  "value": false
+                },
+                {
+                  "op": "gte",
+                  "key": "ambition",
+                  "value": 60
+                }
+              ],
+              "goto": "ending_shu_fall"
+            },
+            {
+              "when": [
+                {
+                  "op": "lt",
+                  "key": "loyalty",
+                  "value": 40
+                }
+              ],
+              "goto": "ending_shu_fall"
+            }
+          ],
+          "else": "ending_shu_holdfast"
+        }
+      ]
+    },
+    "wu_jianye": {
+      "id": "wu_jianye",
+      "type": "scene",
+      "title": "Jianye and the River Throne",
+      "body": "Jianye breathes wet wind, ship tar, and the clean arrogance of a court that knows water better than its enemies know horses. Sun Quan's halls are younger than their scars and older than their jokes. Clerks speak of tides the way northern men speak of cavalry—respect first, romance never.\n\nYou are shown fleet counts before poetry. An elder with salt in his eyebrows says, \"Keep Jiangdong unbroken, and history will invent a nicer name for what we did.\" In the harbor, hulls knock together like impatient teeth.\n\nCao Cao presses south with a noise that reaches even here. Liu Bei's name arrives as both opportunity and infection. Your first advice will taste of both, whether you admit it or not.",
+      "choices": [
+        {
+          "id": "c_wu_fleet",
+          "text": "Drill the Fleet as If Fire Were Coming",
+          "next": "wu_pressure",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wu_grain",
+          "text": "Audit Grain Before Any Heroic Plan",
+          "next": "wu_pressure",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "wu_pressure": {
+      "id": "wu_pressure",
+      "type": "scene",
+      "title": "Envoys, Threats, and Rising Water",
+      "body": "In one week Jianye receives a northern threat dressed as invitation, a western plea dressed as brotherhood, and a local petition begging not to turn the river into a graveyard for someone else's Mandate.\n\nZhou Yu's officers argue wind tables until their voices go hoarse. A merchant prince offers ships \"for the realm\" at interest rates that could buy a county. At night you walk the docks and hear sailors betting whether Cao Cao's chains will make his fleet stronger or easier to burn.\n\nSun Quan listens to everyone and reveals little. When he finally looks at you, the question is plain: will Wu meet the storm as a spear, a ledger, or a reef that breaks other people's keels?\n\nThe cliffs to the west already have a name waiting in rumor.",
+      "choices": [
+        {
+          "id": "c_wu_meet_storm",
+          "text": "Urge Wu to Meet Cao Head-On with Allies",
+          "next": "wu_red_cliffs",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wu_price_aid",
+          "text": "Make Every Ally Pay Before the First Arrow",
+          "next": "wu_red_cliffs",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wu_delay_storm",
+          "text": "Buy Days with Talk While the Fleet Hides Strength",
+          "next": "wu_red_cliffs",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    },
+    "wu_red_cliffs": {
+      "id": "wu_red_cliffs",
+      "type": "scene",
+      "title": "Red Cliffs, Almost Named",
+      "body": "Northern sails crowd the horizon until the water looks paved. Chains grind. Drums travel across fog. On the bank, pitch barrels wait like punctuation marks for a sentence not yet written.\n\nZhou Yu's staff argue timing as if minutes were provinces. Liu Bei's envoys offer alliance with hands that also want Jingzhou—you can see the wanting even when they bow. A captured northern sailor swears Cao Cao's men fear disease more than blades; another swears they fear nothing but boredom.\n\nYou can urge fire and fellowship, demand land before courage, or counsel watching Cao bleed against someone else's courage first. The river is already writing. It only needs your ink—and it will not erase cleanly.",
+      "choices": [
+        {
+          "id": "c_wu_fire",
+          "text": "Commit to Fire and a Full Alliance",
+          "next": "wu_after_cliffs",
+          "effects": [
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wu_demand_jing",
+          "text": "Demand Jingzhou Before You Burn a Ship",
+          "next": "wu_after_cliffs",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "c_wu_watch",
+          "text": "Hold Back and Watch the First Clash",
+          "next": "wu_after_cliffs",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 5
+            },
+            {
+              "op": "set",
+              "key": "chi_bi_won",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    "wu_after_cliffs": {
+      "id": "wu_after_cliffs",
+      "type": "scene",
+      "title": "The Night the River Learned Fire",
+      "body": "Whether you lit the match or withheld it, the river teaches a lesson that outlives any single order.\n\nIf fire and alliance held, the northern fleet becomes a moving catastrophe—light enough to read maps by, loud enough to rewrite careers. Men cheer until their throats bleed. Then, almost immediately, someone asks who owns Jingzhou now that fear has changed owners.\n\nIf you demanded land first, the moment softens into missed wind and harder politics; Cao Cao may still be wounded by others, but Wu's share of glory arrives with invoices. If you watched, you inherit survival and a reputation for calculating while others burned—useful in ledgers, dangerous in songs.\n\nDawn smells of wet ash and ambition. Sun Quan wants counsel before the songs get ahead of the state.",
+      "choices": [
+        {
+          "id": "c_wu_claim_credit",
+          "text": "Claim Wu's Share of the Victory Loudly",
+          "next": "wu_jingzhou",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_wu_quiet_gain",
+          "text": "Take Quiet Gains and Keep the Court Steady",
+          "next": "wu_jingzhou",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "wu_jingzhou": {
+      "id": "wu_jingzhou",
+      "type": "scene",
+      "title": "The Quarrel Named Jingzhou",
+      "body": "After the smoke settles—or fails to—Jingzhou becomes the wound everyone probes with clean fingers. Guan Yu's name rides the roads like weather. Sun Quan's patience thins into policy. Maps of counties become arguments about funerals not yet held.\n\nSeize the province and accept the blood debt? Bargain hard while smiles still work? Or keep the alliance fat and your claim thin, knowing thin claims can starve a dynasty?\n\nIn a side hall, you find two letters on one tray: one from a general hungry for a famous kill, one from a minister hungry for ten quiet years. Both are honest. Both are incomplete.\n\nEast Wu's future is hiding inside this argument, breathing through a reed.",
+      "choices": [
+        {
+          "id": "c_wu_seize_blood",
+          "text": "Seize Jingzhou and Accept the Blood Debt",
+          "next": "wu_debt",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": -15
+            },
+            {
+              "op": "set",
+              "key": "late_gambit",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "c_wu_bargain",
+          "text": "Bargain Borders While Courtesy Lasts",
+          "next": "wu_debt",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wu_keep_ally",
+          "text": "Keep the Alliance and Concede Ground",
+          "next": "wu_debt",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -10
+            }
+          ]
+        }
+      ]
+    },
+    "wu_debt": {
+      "id": "wu_debt",
+      "type": "scene",
+      "title": "Debts Come Due Upstream",
+      "body": "Jingzhou does not stay a line on a map. It becomes messengers who no longer bow, markets that close early, and a western anger that travels downriver faster than any apology.\n\nIf blood was chosen, you hear of a famous head and an infamous silence afterward; celebrations taste metallic. If bargaining won, you spend months measuring miles like a merchant of fog. If alliance was preserved, Wu sleeps safer and wakes hungrier, listening to captains call peace another name for losing.\n\nShu grief and Wei patience begin to rhyme. The gorges heat up with rumor. Sun Quan asks whether Wu should end the argument forever, live by trade and walls, or force a truce that humiliates every hero equally.\n\nYou can feel the next war choosing its weather.",
+      "choices": [
+        {
+          "id": "c_wu_prepare_war",
+          "text": "Prepare the Gorges for a Coming Storm",
+          "next": "wu_yiling",
+          "effects": [
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wu_prepare_peace",
+          "text": "Open Quiet Channels Toward a Settlement",
+          "next": "wu_yiling",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "wu_yiling": {
+      "id": "wu_yiling",
+      "type": "scene",
+      "title": "Heat Along the Gorges",
+      "body": "Shu anger, Wei patience, and Wu pride meet in the gorges like three weathers colliding over one narrow sky. Supply boats grind through mist. Beacons bloom and die on cliffs. A single misread signal could start a battle nobody intended—or delay one everybody needs.\n\nSome generals want a decisive clash to end the argument forever. Merchants want open river lanes and fewer funerals. Old ministers want a peace that embarrasses everyone equally and therefore might last.\n\nYou stand where the Yangtze narrows and history gets loud. Sun Quan looks to you for the kind of advice that outlives a single campaign season—and might outlive the men who hate it.",
+      "choices": [
+        {
+          "id": "c_wu_decisive",
+          "text": "Force a Decisive Battle in the Gorges",
+          "next": "wu_reckoning",
+          "effects": [
+            {
+              "op": "set",
+              "key": "late_gambit",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 15
+            }
+          ]
+        },
+        {
+          "id": "c_wu_fortify_trade",
+          "text": "Fortify the River and Open Trade",
+          "next": "wu_reckoning",
+          "effects": [
+            {
+              "op": "add",
+              "key": "cunning",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_wu_lasting_truce",
+          "text": "Counsel a Lasting Three-Way Truce",
+          "next": "wu_reckoning",
+          "effects": [
+            {
+              "op": "add",
+              "key": "loyalty",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "ambition",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    "wu_reckoning": {
+      "id": "wu_reckoning",
+      "type": "scene",
+      "title": "Wu Reads the Tide",
+      "body": "From Jianye's walls the Yangtze looks almost obedient. It is not. Your years of counsel have made Wu either a sea-road kingdom, a careful third pillar, or a crown snagged on reef and revenge.\n\nThe clerks wait with wet brushes. So does the ending.",
+      "choices": [
+        {
+          "id": "c_wu_to_end",
+          "text": "Let the Tide Keep Your Name",
+          "next": [
+            {
+              "when": [
+                {
+                  "op": "gte",
+                  "key": "cunning",
+                  "value": 60
+                },
+                {
+                  "op": "truthy",
+                  "key": "chi_bi_won"
+                },
+                {
+                  "op": "gte",
+                  "key": "ambition",
+                  "value": 55
+                }
+              ],
+              "goto": "ending_wu_tide"
+            },
+            {
+              "when": [
+                {
+                  "op": "truthy",
+                  "key": "late_gambit"
+                },
+                {
+                  "op": "lt",
+                  "key": "loyalty",
+                  "value": 45
+                }
+              ],
+              "goto": "ending_wu_reef"
+            },
+            {
+              "when": [
+                {
+                  "op": "eq",
+                  "key": "chi_bi_won",
+                  "value": false
+                },
+                {
+                  "op": "gte",
+                  "key": "ambition",
+                  "value": 60
+                }
+              ],
+              "goto": "ending_wu_reef"
+            }
+          ],
+          "else": "ending_wu_truce"
+        }
+      ]
+    },
+    "ending_wei_mandate": {
+      "id": "ending_wei_mandate",
+      "type": "ending",
+      "endingKey": "wei_mandate",
+      "title": "Ending: The Northern Mandate",
+      "body": "Wei does not ask the south for permission. With the north fed, the fleet rebuilt or wisely husbanded, and a throne that finally matches its power, decrees travel farther than apologies.\n\nYou watch new seals pressed in vermilion while old Han rituals are folded away like expensive clothes that no longer fit. Some call it usurpation in quiet rooms. The roads call it order: fewer bandits, clearer taxes, a map that keeps leaning south.\n\nIn the years that follow, southern songs still mock Cao pride—but they mock it from a distance measured by Wei granaries. History will argue about virtue. It will not argue about who wrote the next century's first hard chapter.\n\nYour name appears in two kinds of memorials: praise and warning. Both are earned.",
+      "choices": []
+    },
+    "ending_wei_north": {
+      "id": "ending_wei_north",
+      "type": "ending",
+      "endingKey": "wei_north",
+      "title": "Ending: Master of the Central Plains",
+      "body": "Wei keeps the heartlands and learns to live with unfinished edges. The Yangtze remains a rumor of defiance; Shu and Wu remain problems with calendars and poets.\n\nYour counsel favored weight over miracle. Farmers plant under Cao law. Scholars complain in safety. Generals age into administrators who still dream of one more southern season and never quite get it funded.\n\nThe empire is not whole—but the north no longer wonders who commands dawn. In an age of broken centers, that almost counts as peace. You ride the plains at evening and feel the strange calm of a victory that stopped short of myth.",
+      "choices": []
+    },
+    "ending_wei_ashes": {
+      "id": "ending_wei_ashes",
+      "type": "ending",
+      "endingKey": "wei_ashes",
+      "title": "Ending: Ashes on the Water",
+      "body": "The southern gamble returns as smoke, empty rolls, and a silence that follows too many funerals. Camps thin. Horses eat tomorrow's seed. Courtiers speak softly around your name as if volume itself were contagious.\n\nWei still holds cities, but the Mandate feels like a coat burned at the hem—wearable, shameful, drafty. Cao's enemies drink to a river that taught the north humility. Street verses invent a strategist who loved maps more than wind.\n\nYou keep your charts. The fire already read them better than you did. What remains is a northern power learning to limp with dignity—and a lesson written in pitch.",
+      "choices": []
+    },
+    "ending_shu_han_restored": {
+      "id": "ending_shu_han_restored",
+      "type": "ending",
+      "endingKey": "shu_han_restored",
+      "title": "Ending: The Han Flame Relit",
+      "body": "Against patience and arithmetic, the western armies push far enough that old temples remember their hymns. Allies hold when holding costs them. Passes open. A capital that once laughed at Liu Bei learns a new silence, then a careful cheer.\n\nYou do not mistake this for gentleness—restoration rides on graves and ration counts—but the claim you served becomes more than a traveling story. For a span of years, the Han is not only a word spoken in Chengdu; it is flags on walls that used to sneer.\n\nLanterns burn the color of stubborn hope. In private, you still flinch at certain names. Hope, in this age, always arrives with a ledger.",
+      "choices": []
+    },
+    "ending_shu_holdfast": {
+      "id": "ending_shu_holdfast",
+      "type": "ending",
+      "endingKey": "shu_holdfast",
+      "title": "Ending: The Western Holdfast",
+      "body": "Shu does not conquer the world. It keeps a world: Yi's basins, Hanzhong's fist, laws that outlast a single general's mood, markets that open even when heroes sulk.\n\nYour counsel chose endurance over legend. Children grow up speaking of the Han without marching north to die for the syllable. Wei presses and is blunted. Wu bargains and is answered. Chengdu remains—imperfect, alive, uninterested in becoming a beautiful funeral.\n\nNot every worthy ending needs Luoyang. Sometimes it needs granaries, winter coats, and a strategist willing to be called timid by men who confuse noise with destiny.",
+      "choices": []
+    },
+    "ending_shu_fall": {
+      "id": "ending_shu_fall",
+      "type": "ending",
+      "endingKey": "shu_fall",
+      "title": "Ending: White Emperor Grief",
+      "body": "Alliances crack like ice under spring carts. Jingzhou becomes a lesson written in other men's blood. A northern march returns thinner than it left, carrying banners that look braver than the faces beneath them.\n\nIn the end Shu's colors still brighten walls, but the walls learn hunger. You hear the old oaths spoken like apologies. The Han claim outlives the strength meant to carry it—and that is its own cruelty, a story that refuses to die even when the army cannot feed it.\n\nRain on the Yangtze sounds like a closed gate. You stand under it long enough to understand: some tragedies are not failures of courage, but of arithmetic ignored too late.",
+      "choices": []
+    },
+    "ending_wu_tide": {
+      "id": "ending_wu_tide",
+      "type": "ending",
+      "endingKey": "wu_tide",
+      "title": "Ending: Tide of the East",
+      "body": "Wu turns water into policy. Fleets, markets, and carefully timed wars braid Jiangdong into something sturdier than a wartime camp—an eastern kingdom that eats well and sails farther than its enemies expect.\n\nYour counsel kept cunning ahead of pride. Northern envoys arrive with softer voices. Southern ports learn Wu weights and Wu seasons. Sun Quan's house does not merely survive the age; it teaches the age how a river throne breathes when the Mandate is contested elsewhere.\n\nYears later, charts still carry corrections in your hand. The tide keeps them.",
+      "choices": []
+    },
+    "ending_wu_truce": {
+      "id": "ending_wu_truce",
+      "type": "ending",
+      "endingKey": "wu_truce",
+      "title": "Ending: The Bitter Truce",
+      "body": "No one gets the whole map. That is the point—and the bruise. Your advice stitches a peace that embarrasses heroes and feeds cities, a three-way arrangement held together by mutual disappointment and open granaries.\n\nWei keeps the plains. Shu keeps its mountains. Wu keeps the river and the right to call the arrangement wisdom instead of fear. Poets will prefer the battles you prevented. Farmers will not complain. Generals will complain forever.\n\nYou accept that. In this age, a bitter truce can be the most honest kind of victory.",
+      "choices": []
+    },
+    "ending_wu_reef": {
+      "id": "ending_wu_reef",
+      "type": "ending",
+      "endingKey": "wu_reef",
+      "title": "Ending: Crown on the Reef",
+      "body": "Jingzhou's debt comes due in the gorges. A victory tastes like ash; a defeat teaches the court a new quiet. Ambition without enough loyalty leaves Wu rich in enemies and poor in friends who will answer a night alarm.\n\nYou still see banners on Jianye's walls. They look taller than the men beneath them. The river keeps its counsel. Crowns, you learn, catch easily on hidden stone—especially when the stone was laid by your own clever hands.\n\nHistory files your name under warning. Warnings, unlike empires, tend to last.",
+      "choices": []
+    }
+  }
+}

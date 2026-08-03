@@ -1,0 +1,2043 @@
+{
+  "id": "maskward-city",
+  "title": "Maskward City",
+  "locale": "en",
+  "version": 1,
+  "estimatedMinutes": 52,
+  "narrative": {
+    "person": "third",
+    "knowledge": "limited",
+    "locked": true,
+    "notes": "Third-person limited on Elias Vane only. No other minds. Expansions must keep this POV."
+  },
+  "startNodeId": "fog_kitchen",
+  "variables": {
+    "residue": {
+      "type": "number",
+      "default": 12,
+      "min": 0,
+      "max": 100
+    },
+    "clarity": {
+      "type": "number",
+      "default": 40,
+      "min": 0,
+      "max": 100
+    },
+    "trust_mira": {
+      "type": "number",
+      "default": 15,
+      "min": 0,
+      "max": 100
+    },
+    "guild_favor": {
+      "type": "number",
+      "default": 25,
+      "min": 0,
+      "max": 100
+    },
+    "founded_circlet": {
+      "type": "boolean",
+      "default": false
+    },
+    "lattice_pact": {
+      "type": "boolean",
+      "default": false
+    },
+    "spared_ren": {
+      "type": "boolean",
+      "default": false
+    },
+    "final_stand": {
+      "type": "boolean",
+      "default": false
+    },
+    "mask_deal": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "endings": [
+    "ending_circlet_dawn",
+    "ending_guild_crown",
+    "ending_lattice_ledger",
+    "ending_mask_bargain",
+    "ending_quiet_ferry",
+    "ending_gate_seal",
+    "ending_hollow_truce",
+    "ending_lone_ember",
+    "ending_fog_eat"
+  ],
+  "nodes": {
+    "fog_kitchen": {
+      "id": "fog_kitchen",
+      "type": "scene",
+      "title": "Breakfast in Fogglass",
+      "body": "Salt fog presses the kitchen window until the glass looks like milk. Elias Vane eats toast that tastes faintly of metal—always has, in Maskward—and watches his foster mother hum while she butters nothing in particular.\n\nHis foster father checks a wristwatch that does not tick. The second hand is painted on.\n\nRen Kade texts from across the hall building: *tram in ten. don't be weird today.*\n\nSomething in the room is almost right. Almost is the word that keeps catching on Elias's teeth.",
+      "choices": [
+        {
+          "id": "c_ask_watch",
+          "text": "Ask Why the Watch Never Ticks",
+          "next": "tram_glitch",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "id": "c_eat_quiet",
+          "text": "Eat Quietly and Leave for Class",
+          "next": "tram_glitch",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -3
+            }
+          ]
+        },
+        {
+          "id": "c_text_ren",
+          "text": "Text Ren That Something Feels Off",
+          "next": "tram_glitch",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 4
+            }
+          ]
+        }
+      ]
+    },
+    "tram_glitch": {
+      "id": "tram_glitch",
+      "type": "scene",
+      "title": "The Tram Window",
+      "body": "The harbor tram climbs the ridge on wet rails. Outside, Maskward's towers wear fog like borrowed coats. Inside, passengers smile with the same delay, as if an invisible conductor cues their faces.\n\nElias catches his reflection in the window. For half a second, the glass shows a second outline behind a woman in a green coat—too tall, jointed wrong, smiling through her.\n\nThen the outline is gone. The woman meets his eyes and the smile settles into place, perfect and late.\n\nRen elbows him. \"You're staring. People hate that.\"\n\nThe tram brakes. Fog spills through the doors like a soft animal.",
+      "choices": [
+        {
+          "id": "c_follow_green",
+          "text": "Follow the Woman in Green Off the Tram",
+          "next": "lecture_hall",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": "c_tell_ren",
+          "text": "Tell Ren Exactly What He Saw",
+          "next": "lecture_hall",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_look_away",
+          "text": "Look Away and Pretend It Was Sleep",
+          "next": "lecture_hall",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    "lecture_hall": {
+      "id": "lecture_hall",
+      "type": "scene",
+      "title": "Civic Biology 101",
+      "body": "In the lecture hall, Professor Hale draws a human silhouette and fills it with tidy organs. The chalk squeaks. Somewhere above the rafters, water drips in a rhythm that does not match the rain.\n\nElias's notes refuse to stay notes. The silhouette on the board briefly grows a second jaw. No one else reacts.\n\nRen's pencil keeps moving. His knuckles are the wrong temperature when they brush Elias's sleeve—cool as quay stone.\n\nThis is the hour the city usually forgives. Today it feels hungry.",
+      "choices": [
+        {
+          "id": "c_stand_ask",
+          "text": "Stand and Ask What the Second Jaw Means",
+          "next": "almost_taken",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "id": "c_copy_notes",
+          "text": "Keep Copying Notes and Survive the Hour",
+          "next": "almost_taken",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -4
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": "c_trail_ren",
+          "text": "Slip Out Early and Trail Ren",
+          "next": "almost_taken",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    "almost_taken": {
+      "id": "almost_taken",
+      "type": "scene",
+      "title": "The Service Stair",
+      "body": "The service stair smells of bleach and wet fur. Elias barely finishes a breath before the green-coated woman is there—closer than footsteps allow—mouth opening past the shape of a mouth.\n\nHe understands, without being told, that he has been seen seeing.\n\nSomething inside him answers: not light, not heat—Residue, a pressure like held breath turning into weight. Time he has already survived thickens behind his ribs.\n\nHe does not know the word yet. He only knows he is still alive one second longer than he should be.",
+      "choices": [
+        {
+          "id": "c_burn_push",
+          "text": "Burn the New Weight and Shove Free",
+          "next": "mira_alley",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_freeze",
+          "text": "Freeze and Hope It Mistakes Him for Prey Too Dull",
+          "next": "mira_alley",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 4
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -8
+            }
+          ]
+        },
+        {
+          "id": "c_scream",
+          "text": "Scream for Ren or Anyone",
+          "next": "mira_alley",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    "mira_alley": {
+      "id": "mira_alley",
+      "type": "scene",
+      "title": "Mira in the Rain Spout",
+      "body": "A silver flare cracks the stairwell. The green coat folds wrong and flees into a vent that should not take a body.\n\nA young woman in a rain-dark coat lowers a chalk-marked baton. \"Elias Vane. Orphan file. Foster house on Fogglass. Congratulations: you noticed.\"\n\nShe is Mira Solenne—Compass Guild scout, voice flat as a tide chart. \"Most humans die in the noticing. You banked Residue instead. Live longer awake, and it thickens. Spend it, and it thins. That is the only kindness this city offers.\"\n\nRain needles the alley. Far off, a tram bell sounds almost human.",
+      "choices": [
+        {
+          "id": "c_trust_mira",
+          "text": "Tell Mira Everything He Saw Today",
+          "next": "salt_pier",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_half_truth",
+          "text": "Give Her Half the Truth and Watch Her",
+          "next": "salt_pier",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "id": "c_demand_proof",
+          "text": "Demand Proof Before He Moves",
+          "next": "salt_pier",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    "salt_pier": {
+      "id": "salt_pier",
+      "type": "scene",
+      "title": "Salt Pier Briefing",
+      "body": "At Salt Pier the fog thins just enough to show cranes like gallows. Mira sketches Maskward on a damp napkin: rings of districts, a black X under the old civic gate, tiny dots labeled *clear*—true humans.\n\n\"One in thousands,\" she says. \"The rest wear faces. They call themselves citizens. We call them Masked when we are being polite.\"\n\nElias thinks of toast that tasted like metal. Of a watch that never ticked. Of Ren's cool knuckles.\n\n\"The Compass Guild keeps a ledger of the living,\" Mira continues. \"If you want a chance, you take their trial. If you want a grave, you go home and pretend the stair was a nightmare.\"\n\nGulls scream like torn paper.",
+      "choices": [
+        {
+          "id": "c_take_trial",
+          "text": "Agree to the Compass Trial",
+          "next": "compass_trial",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_ask_family",
+          "text": "Ask First Whether His Family Are Masked",
+          "next": "compass_trial",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "id": "c_hesitate",
+          "text": "Hesitate Until Mira Starts Walking Anyway",
+          "next": "compass_trial",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    "compass_trial": {
+      "id": "compass_trial",
+      "type": "scene",
+      "title": "The Compass Trial",
+      "body": "The Compass Guild occupies a warehouse that smells of oil and old paper. A circle of chalk, three sealed jars, one blindfold. The examiner's smile is human enough that Elias almost trusts it—then notices the man's shadow has too many fingers.\n\n\"Find which jar holds a true heartbeat,\" the examiner says. \"Lie, and the Masked in the walls will smell your panic.\"\n\nResidue ticks behind Elias's sternum like a second clock. Mira watches from the rail, baton across her knees.\n\nOutside, fog taps the loading doors in patient code.",
+      "choices": [
+        {
+          "id": "c_use_residue",
+          "text": "Spend Residue to Feel the True Pulse",
+          "next": "chalk_map",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -8
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_logic_jars",
+          "text": "Choose by Logic and Luck Alone",
+          "next": "chalk_map",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "id": "c_watch_shadow",
+          "text": "Watch the Examiner's Shadow for a Tell",
+          "next": "chalk_map",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    "chalk_map": {
+      "id": "chalk_map",
+      "type": "scene",
+      "title": "Map Room",
+      "body": "Accepted—provisionally. The map room is a cathedral of street grids. Red pins mark disappearances. Blue pins mark hunters. Black pins mark places the Guild will not name aloud.\n\nCaptain Orr of the Compass speaks without looking up. \"Canal district. Something has been nesting under the flower market. You go with Solenne. Bring back proof, not poetry.\"\n\nElias's badge is still warm from the stamp. It feels like a target as much as a key.\n\nRen's unanswered texts glow on his phone like small accusations.",
+      "choices": [
+        {
+          "id": "c_ready_hunt",
+          "text": "Take the Canal Assignment Without Complaint",
+          "next": "canal_hunt",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "id": "c_ask_black",
+          "text": "Ask What the Black Pins Mean",
+          "next": "canal_hunt",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 7
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -3
+            }
+          ]
+        },
+        {
+          "id": "c_text_ren_first",
+          "text": "Text Ren Before He Goes Into the Dark",
+          "next": "canal_hunt",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 3
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    "canal_hunt": {
+      "id": "canal_hunt",
+      "type": "scene",
+      "title": "Flower Market Canal",
+      "body": "Petals float on black water. The flower market's night shift never ends in Maskward; buyers come with wet coats and dry eyes. Under the quay boards, something breathes in time with the tide.\n\nMira signals left. Elias's Residue rises like fever. He can burn it for speed, for a harder strike, for one more second of not dying.\n\nA Masked vendor turns, face slipping half an inch toward something antlered and wrong.\n\nThis is no longer theory.",
+      "choices": [
+        {
+          "id": "c_burn_strike",
+          "text": "Burn Residue and Strike First",
+          "next": "ren_bridge",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -10
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "id": "c_mira_lead",
+          "text": "Hold Back and Let Mira Lead the Bind",
+          "next": "ren_bridge",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_warn_crowd",
+          "text": "Shout a Warning to the Crowd First",
+          "next": "ren_bridge",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 4
+            }
+          ]
+        }
+      ]
+    },
+    "ren_bridge": {
+      "id": "ren_bridge",
+      "type": "scene",
+      "title": "Ren on the Iron Bridge",
+      "body": "They find Ren on the iron footbridge above the canal, hands in his pockets, smiling the old smile. Behind him the fog thins and shows the truth for three merciless seconds: not a boy—a long, jointed thing wearing a boy like a coat.\n\n\"You weren't supposed to wake,\" Ren says gently. \"I liked you better sleeping.\"\n\nElias's childhood rewrites itself in the space between heartbeats. Shared lunches. Shared silence. Shared lies he never knew were lies.\n\nMira's baton hums. \"Your call, Vane. Proof, mercy, or leverage.\" ",
+      "choices": [
+        {
+          "id": "c_spare_ren",
+          "text": "Spare Ren and Let Him Run",
+          "next": "supper_masks",
+          "effects": [
+            {
+              "op": "set",
+              "key": "spared_ren",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "id": "c_expose_ren",
+          "text": "Force the Mask Off for Guild Proof",
+          "next": "supper_masks",
+          "effects": [
+            {
+              "op": "set",
+              "key": "spared_ren",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "c_use_ren",
+          "text": "Bind Ren as Reluctant Informant",
+          "next": "supper_masks",
+          "effects": [
+            {
+              "op": "set",
+              "key": "spared_ren",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -3
+            }
+          ]
+        }
+      ]
+    },
+    "supper_masks": {
+      "id": "supper_masks",
+      "type": "scene",
+      "title": "Supper on Fogglass",
+      "body": "Home still smells like metal toast. His foster parents have set three places. The fourth chair—Ren's old chair—is already pushed in.\n\n\"You look tired,\" his foster mother says, and her mouth is almost the right shape.\n\nElias understands the house now: a careful habitat. Kindness as husbandry. He can sit, burn Residue to keep his face calm, or shatter the evening and see what feeds beneath the wallpaper.\n\nOutside, fog presses fingerprints into the glass.",
+      "choices": [
+        {
+          "id": "c_sit_calm",
+          "text": "Sit, Eat, and Bank Residue in Silence",
+          "next": "archive_rain",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "id": "c_confront_home",
+          "text": "Confront Them With What He Knows",
+          "next": "archive_rain",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -6
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_flee_home",
+          "text": "Leave Without Eating and Do Not Look Back",
+          "next": "archive_rain",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 4
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 4
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    "archive_rain": {
+      "id": "archive_rain",
+      "type": "scene",
+      "title": "Archive Under Rain",
+      "body": "Mira's archive is a basement of drowned filing cabinets. She lays out photocopies: Veiled Court seals, Compass kill quotas, a third mark—Pale Lattice—stamped on smuggled paper.\n\n\"Lattice hates the Guild's pageantry,\" Mira says. \"They harvest Masked for parts and call it math. Compass hates Lattice's appetite. Both hate the Courts. You are about to be asked to pick a hatred you can live inside.\"\n\nRain finds the window well and drums. Elias's badge feels heavier.\n\nHe can give Mira the whole of his fear, or keep a private ledger.",
+      "choices": [
+        {
+          "id": "c_full_trust",
+          "text": "Trust Mira With the Whole Fear",
+          "next": "crimson_bulletin",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 18
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_keep_ledger",
+          "text": "Keep a Private Ledger of Doubts",
+          "next": "crimson_bulletin",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": -4
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "id": "c_ask_lattice",
+          "text": "Ask Her Straight About Pale Lattice",
+          "next": "crimson_bulletin",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 6
+            }
+          ]
+        }
+      ]
+    },
+    "crimson_bulletin": {
+      "id": "crimson_bulletin",
+      "type": "scene",
+      "title": "Crimson Fog Bulletin",
+      "body": "City speakers crackle at noon. A calm voice announces Crimson Fog Week: voluntary curfews, extra ferries, \"weather enrichment.\" On the Guild floor, nobody pretends it is weather.\n\nCaptain Orr taps the map's black pins. \"The Veiled Courts open their hunting calendar. Districts go soft. We go hard. Provisional members who flinch are statistics.\"\n\nElias feels Residue pool like warm ink. Surviving has made him denser. Denseness is not the same as ready.\n\nMira mouths one word: *quay.*",
+      "choices": [
+        {
+          "id": "c_volunteer_front",
+          "text": "Volunteer for the Front Teams",
+          "next": "foreign_quay",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_request_intel",
+          "text": "Request Intel Duty Beside Mira",
+          "next": "foreign_quay",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 4
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_quiet_prep",
+          "text": "Prep Quietly and Watch Who Lies Loudest",
+          "next": "foreign_quay",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    "foreign_quay": {
+      "id": "foreign_quay",
+      "type": "scene",
+      "title": "Foreign Quay",
+      "body": "Foreign Quay smells of diesel and spice crates. Sailors argue in languages the fog tries to erase. A Masked customs officer stamps papers with a hand that has too many quiet bones.\n\nHere the city admits it is larger than Fogglass and the lecture hall. Ships bring other hungers. One crate leaks black salt that hisses when rain touches it.\n\nMira buys information with cigarettes and silence. Elias learns that Crimson Fog Week is not only slaughter—it is census. The Courts count who still pretends.\n\nA child on the quay waves at him with a perfect, delayed smile.",
+      "choices": [
+        {
+          "id": "c_buy_chart",
+          "text": "Buy the Smuggled Court Chart",
+          "next": "lattice_whisper",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -4
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_shadow_officer",
+          "text": "Shadow the Customs Officer",
+          "next": "lattice_whisper",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "id": "c_warn_child",
+          "text": "Steer the Child Away From the Soft Crowd",
+          "next": "lattice_whisper",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 4
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    "lattice_whisper": {
+      "id": "lattice_whisper",
+      "type": "scene",
+      "title": "Pale Lattice Whisper",
+      "body": "In a tea shop that serves no tea, a Lattice agent slides a coin across the table. One face is blank. The other is etched with a grid.\n\n\"Compass will spend you like chalk,\" the agent murmurs. \"Lattice pays in outcomes. Join before Crimson Week peaks, and we teach you to spend Residue without their sermons.\"\n\nMira is not at the table. Elias came alone—or thinks he did. The shop's mirror shows a second him half a second late.\n\nThe coin is cold enough to burn.",
+      "choices": [
+        {
+          "id": "c_take_coin",
+          "text": "Take the Coin and Hear Their Terms",
+          "next": "loyalty_drill",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "id": "c_refuse_coin",
+          "text": "Refuse and Report the Approach",
+          "next": "loyalty_drill",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_pocket_silent",
+          "text": "Pocket the Coin Silent Without Promising",
+          "next": "loyalty_drill",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 3
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -3
+            }
+          ]
+        }
+      ]
+    },
+    "loyalty_drill": {
+      "id": "loyalty_drill",
+      "type": "scene",
+      "title": "Loyalty Drill",
+      "body": "Captain Orr lines the provisionals in the warehouse. \"Crimson Week needs clean chains of command. Speak now if Lattice kissed your ear.\"\n\nEyes move. Nobody breathes honestly. Elias feels the coin—or the absence of it—like a fever.\n\nOrr's gaze stops on him. \"Vane. Canal proof was adequate. Home situation is flagged. Will you obey a kill order on a foster roof if the ledger demands it?\"\n\nThe question is a blade with two handles.",
+      "choices": [
+        {
+          "id": "c_vow_obey",
+          "text": "Vow to Obey the Ledger",
+          "next": "fracture_hall",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": -3
+            }
+          ]
+        },
+        {
+          "id": "c_vow_limit",
+          "text": "Vow to Protect Humans First, Ledger Second",
+          "next": "fracture_hall",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 10
+            }
+          ]
+        },
+        {
+          "id": "c_stay_silent",
+          "text": "Stay Silent Until Orr Moves On",
+          "next": "fracture_hall",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -8
+            }
+          ]
+        }
+      ]
+    },
+    "fracture_hall": {
+      "id": "fracture_hall",
+      "type": "scene",
+      "title": "Fracture Hall",
+      "body": "Arguments become architecture. Half the Guild wants quarantine fire across Fogglass. The other half wants bargains with lesser Courts. Mira's jaw is tight enough to crack chalk.\n\nElias sees the shape of the next year: chalk badges, Lattice grids, or something that is not either—an Ash Circlet of hunters who answer to the living, not the ledger.\n\nRen's possible shadow hangs in the rafters of his mind. Residue waits like a held match.\n\nThis is the hallway where careers end and myths begin.",
+      "choices": [
+        {
+          "id": "c_found_circlet",
+          "text": "Found the Ash Circlet With Mira If She Will Follow",
+          "next": "circlet_roof",
+          "effects": [
+            {
+              "op": "set",
+              "key": "founded_circlet",
+              "value": true
+            },
+            {
+              "op": "set",
+              "key": "lattice_pact",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -20
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "id": "c_join_lattice",
+          "text": "Take the Pale Lattice Pact",
+          "next": "lattice_cell",
+          "effects": [
+            {
+              "op": "set",
+              "key": "lattice_pact",
+              "value": true
+            },
+            {
+              "op": "set",
+              "key": "founded_circlet",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -25
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "id": "c_stay_compass",
+          "text": "Stay Compass and Fight From Inside",
+          "next": "guild_inner",
+          "effects": [
+            {
+              "op": "set",
+              "key": "founded_circlet",
+              "value": false
+            },
+            {
+              "op": "set",
+              "key": "lattice_pact",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    "circlet_roof": {
+      "id": "circlet_roof",
+      "type": "scene",
+      "title": "Ash Circlet Roof",
+      "body": "They gather on a water-tank roof: Mira, two burnt-out Compass scouts, a quay medic who still believes in stitches. Elias draws a circle in ash and rain.\n\n\"No quotas,\" he says, and hears how young it sounds. \"No farming the Masked for parts. We keep clearbloods alive through Crimson Week, then we argue about the world.\"\n\nMira nods once. \"Then we will be hunted by everyone with a stamp.\"\n\nBelow them, fog districts blink into curfew red.",
+      "choices": [
+        {
+          "id": "c_circlet_ready",
+          "text": "Seal the Circlet and Prepare for Veil Week",
+          "next": "veil_week",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_circlet_recruit",
+          "text": "Risk One More Night Recruiting Quietly",
+          "next": "veil_week",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 4
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    "lattice_cell": {
+      "id": "lattice_cell",
+      "type": "scene",
+      "title": "Lattice Cell",
+      "body": "Pale Lattice keeps its maps in a refrigerated room. Numbers replace names. A surgeon-captain explains Residue expenditure like interest.\n\n\"Mercy is a rounding error,\" she says. \"Survive Crimson Week with us, and Maskward becomes a spreadsheet that bleeds less.\"\n\nElias's Circlet-shaped hope goes quiet. The coin's blank face finally makes sense.\n\nSomewhere above, Compass sirens begin a different hymn.",
+      "choices": [
+        {
+          "id": "c_lattice_ready",
+          "text": "Accept the Cell's Crimson Deployment",
+          "next": "veil_week",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": -10
+            }
+          ]
+        },
+        {
+          "id": "c_lattice_doubt",
+          "text": "Accept—but Smuggle Mira a Warning",
+          "next": "veil_week",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 3
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    "guild_inner": {
+      "id": "guild_inner",
+      "type": "scene",
+      "title": "Inside the Compass",
+      "body": "Staying means corridors, stamps, and Orr's voice in his sleep. Elias is given a cleaner badge and a dirtier list.\n\nMira remains nearby—not always approving, always counting exits. \"If you stay, make the ledger lie in the right direction,\" she says.\n\nCrimson Fog Week begins with a sound like a wet flag.\n\nElias banks Residue the way other people bank apologies.",
+      "choices": [
+        {
+          "id": "c_guild_ready",
+          "text": "Take Inner Roster for Veil Week",
+          "next": "veil_week",
+          "effects": [
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "id": "c_guild_shield",
+          "text": "Rewrite One Kill Order Into an Evacuation",
+          "next": "veil_week",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    "veil_week": {
+      "id": "veil_week",
+      "type": "scene",
+      "title": "Crimson Fog Week",
+      "body": "The fog arrives the color of diluted blood. Streetlamps halo wrong. Neighbors knock with gifts and teeth.\n\nWherever Elias stands—Circlet roof, Lattice cell, or Compass hall—the city becomes a throat. Residue thickens each hour he remains upright and awake. Clarity frays each hour he must decide who is still human enough to save.\n\nReports contradict. A ferry sinks and then is seen docked. A school rings its bell at 3:17 for twelve minutes.\n\nMira's message, if it reaches him, is three words: *under gate soon.*",
+      "choices": [
+        {
+          "id": "c_save_block",
+          "text": "Spend Residue to Clear One Housing Block",
+          "next": "court_banner",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -12
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "id": "c_hunt_elite",
+          "text": "Hunt an Elite Masked Through the Fog",
+          "next": "court_banner",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -8
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 10
+            }
+          ]
+        },
+        {
+          "id": "c_hold_line",
+          "text": "Hold a Defensive Line and Bank More Residue",
+          "next": "court_banner",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 14
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -4
+            }
+          ]
+        }
+      ]
+    },
+    "court_banner": {
+      "id": "court_banner",
+      "type": "scene",
+      "title": "Court Banner on High Street",
+      "body": "A Veiled Court emissary walks High Street without hurry. Its banner is a sheet of fog stitched with faces. Where it passes, advertisements rewrite into invitations.\n\n\"Census,\" it announces in a voice like polite radio. \"Clearbloods may register for gentle endings. Hunters may register for instructive ones.\"\n\nElias's faction—whatever stamp he carries—tightens around the moment. Guns and chalk and grids all feel small.\n\nHe can challenge, bargain, or vanish into side streets toward the under-gate.",
+      "choices": [
+        {
+          "id": "c_challenge_banner",
+          "text": "Challenge the Emissary in the Open",
+          "next": "alley_war",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -10
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "id": "c_side_streets",
+          "text": "Break for the Under-Gate via Side Streets",
+          "next": "alley_war",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_false_register",
+          "text": "Feign Registration to Steal Court Timing",
+          "next": "alley_war",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -4
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_mask_deal",
+          "text": "Offer the Emissary a Bargain of Masks",
+          "effects": [
+            {
+              "op": "set",
+              "key": "mask_deal",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -12
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": -10
+            }
+          ],
+          "next": "alley_war"
+        }
+      ]
+    },
+    "alley_war": {
+      "id": "alley_war",
+      "type": "scene",
+      "title": "War of Alleys",
+      "body": "Alleys become borders. Compass chalk meets Lattice cable meets Circlet ash marks. Civilians—if the word still holds—run between doctrines.\n\nElias fights until his hands shake. Residue is a dwindling treasury. He sees Ren once, or thinks he does, at the far end of a lane: a wave that might be farewell or targeting.\n\nMira appears at his shoulder smelling of rain and copper. \"The under-gate is open. The Courts are using Crimson Week to feed something older than badges.\"\n\nSmoke writes false street names on the sky.",
+      "choices": [
+        {
+          "id": "c_push_gate",
+          "text": "Push With Mira Toward the Under-Gate",
+          "next": "under_gate",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_cover_civilians",
+          "text": "Stay Behind to Cover a Civilian Corridor",
+          "next": "under_gate",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 4
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -8
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "guild_favor",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_solo_cut",
+          "text": "Cut Solo Through the Roofs",
+          "next": "under_gate",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -6
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": -6
+            }
+          ]
+        }
+      ]
+    },
+    "under_gate": {
+      "id": "under_gate",
+      "type": "scene",
+      "title": "The Under-Gate",
+      "body": "Beneath civic stone, the under-gate is a mouth of rivets and old law. Beyond it, something like an ocean turns without water. Masks hang on hooks that cast no shadows.\n\nHere Residue rings loud. Elias understands the city's secret grammar: Maskward is not a hometown. It is a holding pattern. The Courts thin human noise so the older dark can sleep, or wake.\n\nMira's baton hangs unused. \"We can seal it with enough Residue and clarity. Or we can walk away and let the Week finish its math.\"\n\nThe gate breathes. Waiting.",
+      "choices": [
+        {
+          "id": "c_study_gate",
+          "text": "Study the Gate Before Touching It",
+          "next": "last_counsel",
+          "effects": [
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "id": "c_touch_gate",
+          "text": "Touch the Gate and Feel Its Hunger",
+          "next": "last_counsel",
+          "effects": [
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": -6
+            }
+          ]
+        },
+        {
+          "id": "c_listen_mira",
+          "text": "Listen to Mira's Full Plan First",
+          "next": "last_counsel",
+          "effects": [
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 6
+            }
+          ]
+        }
+      ]
+    },
+    "last_counsel": {
+      "id": "last_counsel",
+      "type": "scene",
+      "title": "Last Counsel",
+      "body": "There is little time and less clean language. Elias stands in the rivet dark with whatever allies his choices still allow.\n\nHe can pour Residue into a final stand—seal, crown, or burn—or keep enough to flee on the morning ferries when fog lightens to ordinary gray.\n\nClarity tells him what he is. Residue tells him what he can still buy. Trust and stamps tell him who will still stand when the buying starts.\n\nThe gate's breath fogs his eyelashes.",
+      "choices": [
+        {
+          "id": "c_final_yes",
+          "text": "Commit to a Final Stand at the Gate",
+          "next": "fog_reckoning",
+          "effects": [
+            {
+              "op": "set",
+              "key": "final_stand",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -15
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": "c_final_no",
+          "text": "Refuse the Stand and Plan Extraction",
+          "next": "fog_reckoning",
+          "effects": [
+            {
+              "op": "set",
+              "key": "final_stand",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "id": "c_final_split",
+          "text": "Split Efforts: Half Seal, Half Evacuate",
+          "next": "fog_reckoning",
+          "effects": [
+            {
+              "op": "set",
+              "key": "final_stand",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -8
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "clarity",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "id": "c_final_fog",
+          "text": "Open Himself to the Fog and Stop Fighting Clarity",
+          "effects": [
+            {
+              "op": "set",
+              "key": "final_stand",
+              "value": false
+            },
+            {
+              "op": "set",
+              "key": "clarity",
+              "value": 18
+            },
+            {
+              "op": "add",
+              "key": "residue",
+              "value": -10
+            },
+            {
+              "op": "add",
+              "key": "trust_mira",
+              "value": -15
+            }
+          ],
+          "next": "fog_reckoning"
+        }
+      ]
+    },
+    "fog_reckoning": {
+      "id": "fog_reckoning",
+      "type": "scene",
+      "title": "Fog Reckoning",
+      "body": "Crimson Week breaks like a fever—or pretends to. What remains of Elias's path gathers into one weather: Circlet ash, Lattice grid, Compass chalk, or the lone ember of a boy who noticed too much.\n\nHe does not get a speech from the city. He gets consequence.\n\nThe fog listens for which ending he has earned.",
+      "choices": [
+        {
+          "id": "c_to_end",
+          "text": "Step Into Whatever Comes",
+          "next": [
+            {
+              "when": [
+                {
+                  "op": "truthy",
+                  "key": "founded_circlet"
+                },
+                {
+                  "op": "truthy",
+                  "key": "final_stand"
+                },
+                {
+                  "op": "gte",
+                  "key": "trust_mira",
+                  "value": 45
+                },
+                {
+                  "op": "gte",
+                  "key": "residue",
+                  "value": 25
+                }
+              ],
+              "goto": "ending_circlet_dawn"
+            },
+            {
+              "when": [
+                {
+                  "op": "truthy",
+                  "key": "lattice_pact"
+                },
+                {
+                  "op": "eq",
+                  "key": "founded_circlet",
+                  "value": false
+                },
+                {
+                  "op": "gte",
+                  "key": "clarity",
+                  "value": 45
+                },
+                {
+                  "op": "gte",
+                  "key": "residue",
+                  "value": 15
+                }
+              ],
+              "goto": "ending_lattice_ledger"
+            },
+            {
+              "when": [
+                {
+                  "op": "lte",
+                  "key": "clarity",
+                  "value": 22
+                }
+              ],
+              "goto": "ending_fog_eat"
+            },
+            {
+              "when": [
+                {
+                  "op": "truthy",
+                  "key": "mask_deal"
+                },
+                {
+                  "op": "eq",
+                  "key": "founded_circlet",
+                  "value": false
+                },
+                {
+                  "op": "eq",
+                  "key": "lattice_pact",
+                  "value": false
+                }
+              ],
+              "goto": "ending_mask_bargain"
+            },
+            {
+              "when": [
+                {
+                  "op": "truthy",
+                  "key": "final_stand"
+                },
+                {
+                  "op": "eq",
+                  "key": "founded_circlet",
+                  "value": false
+                },
+                {
+                  "op": "eq",
+                  "key": "lattice_pact",
+                  "value": false
+                },
+                {
+                  "op": "gte",
+                  "key": "clarity",
+                  "value": 50
+                },
+                {
+                  "op": "gte",
+                  "key": "residue",
+                  "value": 10
+                }
+              ],
+              "goto": "ending_gate_seal"
+            },
+            {
+              "when": [
+                {
+                  "op": "eq",
+                  "key": "founded_circlet",
+                  "value": false
+                },
+                {
+                  "op": "eq",
+                  "key": "lattice_pact",
+                  "value": false
+                },
+                {
+                  "op": "gte",
+                  "key": "residue",
+                  "value": 45
+                },
+                {
+                  "op": "lt",
+                  "key": "trust_mira",
+                  "value": 45
+                },
+                {
+                  "op": "lt",
+                  "key": "guild_favor",
+                  "value": 55
+                }
+              ],
+              "goto": "ending_lone_ember"
+            },
+            {
+              "when": [
+                {
+                  "op": "eq",
+                  "key": "founded_circlet",
+                  "value": false
+                },
+                {
+                  "op": "eq",
+                  "key": "lattice_pact",
+                  "value": false
+                },
+                {
+                  "op": "eq",
+                  "key": "final_stand",
+                  "value": false
+                },
+                {
+                  "op": "gte",
+                  "key": "guild_favor",
+                  "value": 55
+                }
+              ],
+              "goto": "ending_guild_crown"
+            },
+            {
+              "when": [
+                {
+                  "op": "eq",
+                  "key": "final_stand",
+                  "value": false
+                },
+                {
+                  "op": "lt",
+                  "key": "guild_favor",
+                  "value": 45
+                }
+              ],
+              "goto": "ending_quiet_ferry"
+            }
+          ],
+          "else": "ending_hollow_truce"
+        }
+      ]
+    },
+    "ending_circlet_dawn": {
+      "id": "ending_circlet_dawn",
+      "type": "ending",
+      "endingKey": "circlet_dawn",
+      "title": "Circlet Dawn",
+      "body": "Ash marks outlast the Crimson banners. The Ash Circlet holds three districts through the worst nights, then a fourth by rumor alone. Mira lives. Elias's Residue runs thin, but the living count higher than the ledger ever did.\n\nMaskward does not become kind. It becomes, in places, defended.\n\nAt dawn the fog turns ordinary gray, and for the first time since the stairwell, Elias sleeps without listening for a painted second hand.",
+      "choices": []
+    },
+    "ending_guild_crown": {
+      "id": "ending_guild_crown",
+      "type": "ending",
+      "endingKey": "guild_crown",
+      "title": "Compass Crown",
+      "body": "Elias never leaves the Compass. He bends it. Kill orders soften into corridors; Orr's ledger gains inconvenient footnotes written in a steady hand.\n\nThe Guild calls it reform when it works and insubordination when it does not. Either way, Fogglass keeps more of its clearbloods than the Courts budgeted for.\n\nOn a quiet morning, Elias corrects a map pin and feels—almost—like a citizen of something real.",
+      "choices": []
+    },
+    "ending_lattice_ledger": {
+      "id": "ending_lattice_ledger",
+      "type": "ending",
+      "endingKey": "lattice_ledger",
+      "title": "Lattice Ledger",
+      "body": "Pale Lattice's grid closes over Maskward like netting. Crimson Week becomes a harvest with better margins. Elias learns to speak in outcomes until mercy sounds like inefficiency even to himself.\n\nThe city bleeds less loudly. It does not bleed less.\n\nAt night he dreams of blank coins and wakes counting breaths as inventory.",
+      "choices": []
+    },
+    "ending_mask_bargain": {
+      "id": "ending_mask_bargain",
+      "type": "ending",
+      "endingKey": "mask_bargain",
+      "title": "Bargain of Masks",
+      "body": "The fighting ends in contracts. Some Masked keep their faces; some hunters keep their badges; the Courts keep the under-gate ajar.\n\nElias survives as a translator between hungers. Ren—if spared or not—becomes a rumor that smiles from tram glass.\n\nIt is peace the way a scar is skin.",
+      "choices": []
+    },
+    "ending_quiet_ferry": {
+      "id": "ending_quiet_ferry",
+      "type": "ending",
+      "endingKey": "quiet_ferry",
+      "title": "Quiet Ferry",
+      "body": "He leaves on a ferry that claims to exit the fog's jurisdiction. Whether that is true is a problem for another coastline.\n\nMaskward shrinks into a red weather behind him. Mira's last look—if she gave one—stays unreadable in third-person dark.\n\nElias banks no more Residue. He banks distance, and hopes distance is a kind of clarity.",
+      "choices": []
+    },
+    "ending_gate_seal": {
+      "id": "ending_gate_seal",
+      "type": "ending",
+      "endingKey": "gate_seal",
+      "title": "Gate Seal",
+      "body": "He pours Residue into the under-gate until his hands go numb and the rivets scream shut. Clarity holds the pattern; his body pays the interest.\n\nThe Courts howl without mouths. Crimson Week stutters. Maskward will invent new hungers later—but not today.\n\nThey find Elias seated against the sealed iron, still breathing, already becoming a story the Guild will misquote.",
+      "choices": []
+    },
+    "ending_hollow_truce": {
+      "id": "ending_hollow_truce",
+      "type": "ending",
+      "endingKey": "hollow_truce",
+      "title": "Hollow Truce",
+      "body": "Sirens end. Banners drop. No faction wins enough to brag cleanly. Elias stands in the leftover quiet with middling Residue and a city that agrees, for now, to pretend.\n\nPeople return to metal toast and delayed smiles. He returns to work that is not quite peace.\n\nThe fog remains. It always does.",
+      "choices": []
+    },
+    "ending_lone_ember": {
+      "id": "ending_lone_ember",
+      "type": "ending",
+      "endingKey": "lone_ember",
+      "title": "Lone Ember",
+      "body": "Power without a circle is still power. Elias's Residue makes alleys flinch. Hunters ask his advice and do not stay for tea.\n\nHe keeps Maskward's worst nights from swallowing whole blocks—and comes home to no voice saying his name correctly.\n\nAn ember can light a street. It cannot be a hearth.",
+      "choices": []
+    },
+    "ending_fog_eat": {
+      "id": "ending_fog_eat",
+      "type": "ending",
+      "endingKey": "fog_eat",
+      "title": "The Fog Eats",
+      "body": "Clarity fails like a wet match. Faces swim. The city's true angles arrive without kindness.\n\nWhether the Courts take him, or the stairwell's hunger finally finishes its meal, the story from outside is the same: another provisional light gone out in Crimson weather.\n\nFog closes over the place where Elias Vane was learning to see.",
+      "choices": []
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "site": {
+    "name": "Pathwoven",
+    "tagline": "Short choice-driven stories you can finish in one sitting.",
+    "locale": "en"
+  },
+  "stories": [
+    {
+      "id": "forrest-path",
+      "title": "Forrest Path",
+      "blurb": "Greenbow to Vietnam to the open road. Longer scenes, harder forks—stay true for the film's ending, or step into other lives. Twelve endings.",
+      "estimatedMinutes": 55,
+      "locale": "en",
+      "tags": ["drama", "literary-inspired", "longform"],
+      "status": "available",
+      "path": "forrest-path/story.json",
+      "contentNotes": "Inspired by Forrest Gump. Bittersweet themes: war, illness, grief."
+    },
+    {
+      "id": "three-kingdoms",
+      "title": "Three Kingdoms: Banner",
+      "blurb": "Late Han collapses. Choose Wei, Shu, or Wu, then ride fever, fire, debt, and winter through Red Cliffs and the wars after. Nine endings; longer scenes.",
+      "estimatedMinutes": 50,
+      "locale": "en",
+      "tags": ["historical", "public-domain", "three-kingdoms", "strategy", "longform"],
+      "status": "available",
+      "path": "three-kingdoms/story.json",
+      "contentNotes": "Based on Chinese history and Romance of the Three Kingdoms traditions (public domain). War, loyalty, and alternate outcomes."
+    },
+    {
+      "id": "maskward-city",
+      "title": "Maskward City",
+      "blurb": "Fog-locked Maskward hides Masked citizens behind human faces. Elias banks Residue to stay alive, then chooses Compass, Lattice, or Ash Circlet before Crimson Fog Week. Nine endings.",
+      "estimatedMinutes": 52,
+      "locale": "en",
+      "tags": ["urban-fantasy", "original", "longform", "faction"],
+      "status": "available",
+      "path": "maskward-city/story.json",
+      "contentNotes": "Original fiction. Mild horror: disguised predators, civic violence, moral compromise."
+    }
+  ]
+}

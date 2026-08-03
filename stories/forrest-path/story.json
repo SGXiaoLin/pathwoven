@@ -1,0 +1,2152 @@
+{
+  "id": "forrest-path",
+  "title": "Forrest Path",
+  "locale": "en",
+  "version": 3,
+  "estimatedMinutes": 55,
+  "narrative": {
+    "person": "third",
+    "knowledge": "limited",
+    "locked": true,
+    "notes": "Third-person limited on Forrest only. Use he/him/his or Forrest. Stay in his senses and what he can fairly infer. Do not enter other minds. Expansions must keep this POV."
+  },
+  "startNodeId": "bench_open",
+  "variables": {
+    "devotion_jenny": {
+      "type": "number",
+      "default": 40,
+      "min": 0,
+      "max": 100
+    },
+    "duty": {
+      "type": "number",
+      "default": 50,
+      "min": 0,
+      "max": 100
+    },
+    "momentum": {
+      "type": "number",
+      "default": 40,
+      "min": 0,
+      "max": 100
+    },
+    "kept_promise": {
+      "type": "boolean",
+      "default": false
+    },
+    "stayed_with_jenny": {
+      "type": "boolean",
+      "default": false
+    },
+    "ran_america": {
+      "type": "boolean",
+      "default": false
+    },
+    "war_hero": {
+      "type": "boolean",
+      "default": false
+    },
+    "canon_path": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "endings": [
+    "ending_canon_bench",
+    "ending_forever_run",
+    "ending_shrimp_alone",
+    "ending_homebound",
+    "ending_jenny_fragile",
+    "ending_broken_promise",
+    "ending_quiet_father",
+    "ending_lieutenant_bond",
+    "ending_war_shadow",
+    "ending_bus_stop_alone",
+    "ending_college_stay",
+    "ending_empty_boat"
+  ],
+  "nodes": {
+    "bench_open": {
+      "id": "bench_open",
+      "type": "scene",
+      "title": "A Bench in Greenbow",
+      "body": "A suitcase rests against Forrest Gump's ankle like a loyal dog. The bus stop in Greenbow smells of warm asphalt, cut grass, and somebody's fried chicken cooling in a paper bag. Afternoon light sits heavy on the road. A stranger lowers himself onto the bench beside Forrest, careful not to crowd, and glances at the suitcase as if it might tell a joke.\n\nForrest has been a boy with metal on his legs, a football player, a soldier, a shrimp boat captain, and a man who ran until running became a kind of prayer. Mama used to say life was a box of chocolates—you never know what you're gonna get. Sitting here, Forrest knows she was only half right. Sometimes a man chooses the piece. Sometimes the piece chooses him.\n\nThe stranger's politeness makes room for a story. Forrest's mouth fills with years: Jenny's oak tree, Bubba's shrimp speech, Lieutenant Dan's anger, a little boy with his name. The bus is not here yet. The road shimmers.\n\nWhere does a life begin when it never learned how to stay in one lane?",
+      "choices": [
+        {
+          "id": "c_tell_straight",
+          "text": "Begin at the Beginning, Straight as a Road",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 5
+            }
+          ],
+          "next": "childhood_bus"
+        },
+        {
+          "id": "c_start_jenny",
+          "text": "Begin With Jenny—She Was the First Soft Place",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "childhood_bus"
+        },
+        {
+          "id": "c_start_mama",
+          "text": "Begin With Mama's Voice on the Porch",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            }
+          ],
+          "next": "childhood_bus"
+        }
+      ]
+    },
+    "childhood_bus": {
+      "id": "childhood_bus",
+      "type": "scene",
+      "title": "The Yellow Bus",
+      "body": "Memory smells like pencil shavings and hot vinyl seats. Mama has walked Forrest to the curb in his Sunday-best courage. The yellow bus wheezes up, door folding open with a tired accordion sigh. Inside, children already own every seat the way birds own a wire.\n\nForrest's leg braces catch the light. A boy in the front snickers. Another whispers his name like it is a dare. The driver waits with one eyebrow raised, not unkind, just busy. Time stretches thin between the step and the aisle.\n\nHalfway back, a girl with soft hair and a quiet face looks at him—not at the braces, at him. Her eyes say there is room if he wants it. The empty window seat farther back says he can disappear into glass and fields. The rubber step under his shoe says he could stand here forever and never become a passenger.\n\nThe bus will not wait forever. Neither will childhood.",
+      "choices": [
+        {
+          "id": "c_sit_with_jenny",
+          "text": "Take the Seat Beside the Girl Who Sees Him",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "jenny_oak"
+        },
+        {
+          "id": "c_sit_alone",
+          "text": "Slip Into the Empty Window Seat and Keep Quiet",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -5
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "jenny_oak"
+        },
+        {
+          "id": "c_stay_on_step",
+          "text": "Freeze on the Step Until the Driver Has to Speak",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -5
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "jenny_oak"
+        }
+      ]
+    },
+    "jenny_oak": {
+      "id": "jenny_oak",
+      "type": "scene",
+      "title": "Under the Oak",
+      "body": "Whether Forrest sat beside her that first morning or found her later like a door he almost missed, Jenny Curran becomes the shape home takes when home is frightening. Behind her house stands an oak older than either of them, its roots knuckled into the dirt, its branches a green ceiling.\n\nShe brings him there when the world turns sharp. Sometimes she sings. Sometimes she asks God for feathers—wings, she means—so she can fly far away. Forrest does not fully understand the asking, but he understands the needing. Sitting with her, the braces feel lighter. The afternoon ticks with insects. Dust floats in the shafts of light like slow snow.\n\nJenny rests her head near his and says, soft as a secret, that he can come here whenever he needs to. Friendship, in this place, is not a schoolyard word. It is shelter.\n\nThe sun leans west. Soon he will have to walk home through a town that does not always love difference. Before he leaves the oak's shade, something in him wants to answer her kindness with a vow, a question, a silence, or a retreat.",
+      "choices": [
+        {
+          "id": "c_promise_jenny",
+          "text": "Promise Her, Out Loud, He Will Always Be Her Friend",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "braces_chase"
+        },
+        {
+          "id": "c_ask_about_home",
+          "text": "Ask Gently Why She Needs a Hiding Place",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 5
+            }
+          ],
+          "next": "braces_chase"
+        },
+        {
+          "id": "c_keep_quiet_tree",
+          "text": "Say Nothing—Just Watch the Leaves With Her",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 5
+            }
+          ],
+          "next": "braces_chase"
+        },
+        {
+          "id": "c_leave_early_tree",
+          "text": "Stand Up Early and Walk Home Without a Word",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "braces_chase"
+        }
+      ]
+    },
+    "braces_chase": {
+      "id": "braces_chase",
+      "type": "scene",
+      "title": "Run, Forrest",
+      "body": "Years braid themselves together until one afternoon the road behind Forrest fills with bicycle tires and mean laughter. Rocks find his back. His braces chatter like loose cutlery. Jenny is somewhere near—her voice cuts through the noise, high and urgent, telling him the only medicine this moment knows.\n\nRun.\n\nHis legs argue with metal. Then metal loses. The braces tear free in a clatter that sounds like a door unlocking. Suddenly the road is not a punishment; it is a sentence he can finish. Wind scrapes his ears. The boys shrink behind him. Fields blur into a green ribbon.\n\nBut running is a choice even when it feels like destiny. He could also stop and make a stand. He could vanish into a ditch and let the world pass over like weather. Jenny's cry still hangs in the air.\n\nWhat do his legs—and his fear—decide?",
+      "choices": [
+        {
+          "id": "c_run_free",
+          "text": "Run Until the Road and the Bullies Fall Away",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 5
+            }
+          ],
+          "next": "college_gridiron"
+        },
+        {
+          "id": "c_turn_and_face",
+          "text": "Stop Hard, Turn, and Face the Boys",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "college_gridiron"
+        },
+        {
+          "id": "c_hide_ditch",
+          "text": "Dive Into the Ditch and Wait Them Out",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -15
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "college_gridiron"
+        }
+      ]
+    },
+    "college_gridiron": {
+      "id": "college_gridiron",
+      "type": "scene",
+      "title": "Crimson Field",
+      "body": "That running does not stay a childhood trick. One day a coach sees Forrest's legs refuse to quit and Alabama wraps him in crimson and white. Stadium lights turn night into noon. The crowd rises like weather. When the ball finds his hands, the field becomes the old road again—except now thousands of strangers cheer the escape.\n\nMama writes letters that smell faintly of porch wood and pride. Jenny appears in fragments: a visit, a rumor, a song on a radio that might be hers. Between practices Forrest thinks of the oak, of braces in the dirt, of how strange it is that the thing that saved him from rocks now pays for his schooling.\n\nCoach wants another perfect Saturday. Jenny may be somewhere needing a friend more than a football score. Mama wants him to be a gentleman even when the hits come sideways.\n\nUnder the roar, a quieter question: who is he playing for?",
+      "choices": [
+        {
+          "id": "c_play_for_mama",
+          "text": "Play Every Down as If Mama Is in the Stands",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 5
+            }
+          ],
+          "next": "mama_porch"
+        },
+        {
+          "id": "c_chase_jenny_campus",
+          "text": "Skip Practice and Go Looking for Jenny",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "mama_porch"
+        },
+        {
+          "id": "c_keep_head_down",
+          "text": "Keep His Head Down and Do Exactly as Coach Says",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 15
+            }
+          ],
+          "next": "mama_porch"
+        }
+      ]
+    },
+    "mama_porch": {
+      "id": "mama_porch",
+      "type": "scene",
+      "title": "Mama's Porch",
+      "body": "College ends the way songs end—one last chorus, then a hush that feels too large for the room. Forrest comes home to Greenbow and finds Mama smaller somehow, her voice thinner, her pride still fitted to the porch like old paint that will not peel.\n\nShe talks about destiny the way some people talk about weather: you dress for it, and you go anyway. She reminds him that he is no different from anybody else just because a doctor once used careful words. Then she gives him the sentence that will outlive her kitchen and her rocking chair.\n\n\"Life is a box of chocolates, Forrest. You never know what you're gonna get.\"\n\nHer hand is light in his. Outside, cicadas crank up their evening engine. The house already feels rehearsed for absence. He can promise to keep moving. He can swear never to leave these boards. He can ask, because love makes him ask, whether Jenny will be all right in a world this wide and this sharp.",
+      "choices": [
+        {
+          "id": "c_honor_mama",
+          "text": "Promise Mama He Will Keep Going the Best He Can",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            }
+          ],
+          "next": "enlist_crossroads"
+        },
+        {
+          "id": "c_cling_house",
+          "text": "Swear He Will Never Leave This House Empty",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -15
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "enlist_crossroads"
+        },
+        {
+          "id": "c_ask_jenny_mama",
+          "text": "Ask Her, Softly, If Jenny Will Be All Right",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "enlist_crossroads"
+        }
+      ]
+    },
+    "enlist_crossroads": {
+      "id": "enlist_crossroads",
+      "type": "scene",
+      "title": "A Recruiter's Smile",
+      "body": "After Mama, the future arrives wearing a uniform and a smile practiced in fluorescent offices. A recruiter speaks as if tomorrow has already signed its name. College has finished its useful song. Greenbow's main street looks shorter than it used to.\n\nForrest stands at a real fork, not a storybook one. The Army offers order, boots, a direction when grief makes every room echo. Campus still offers familiar chalk and younger players who need a steady hand. Home offers the porch light and the thin hope that Jenny might one day walk up the steps. And then there are the rumors—Jenny in cities with stages and smoke—pulling at him like a tide he can almost name.\n\nMama said you never know what you're gonna get. She did not say a man never chooses.\n\nWhich forward does he take while his grief is still fresh enough to steer?",
+      "choices": [
+        {
+          "id": "c_enlist",
+          "text": "Sign the Papers and Enlist",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 15
+            }
+          ],
+          "next": "vietnam_bubba"
+        },
+        {
+          "id": "c_stay_college",
+          "text": "Stay Near Campus and Help Coach the Young",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -10
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -5
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "college_linger"
+        },
+        {
+          "id": "c_go_homebound",
+          "text": "Go Home to Greenbow and Keep the Porch Light On",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -15
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "homebound_road"
+        },
+        {
+          "id": "c_follow_jenny_city",
+          "text": "Follow the Rumors of Jenny Into the City",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "chase_jenny_city"
+        }
+      ]
+    },
+    "college_linger": {
+      "id": "college_linger",
+      "type": "scene",
+      "title": "Extra Seasons",
+      "body": "Forrest chooses the field he already knows. Stadium lights still find him, but the roar belongs to boys with newer numbers. He teaches footwork. He mows the edge of the practice grass. He learns the names of freshmen who remind him of a quieter version of himself.\n\nAlabama stays Alabama: heat, hymns, football Saturdays, iced tea sweat on glass. The war is a television murmur in the dining hall, distant as weather over somebody else's county. Letters from Jenny arrive late, stained, or not at all. Some nights he walks the empty stands and feels both safe and left behind.\n\nA coach mentions he could make a whole life here. A news clip shows men his age in mud. His legs, once famous for fleeing trouble, now pace a chalk sideline.\n\nDoes he root himself in this small proud world, step late into the uniform he refused, or carry his suitcase back to Greenbow's quieter gravity?",
+      "choices": [
+        {
+          "id": "c_college_end",
+          "text": "Build a Quiet Life Around These Practice Lights",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -10
+            }
+          ],
+          "next": "ending_college_stay"
+        },
+        {
+          "id": "c_college_late_enlist",
+          "text": "Enlist Late—Before the War Leaves Him Behind",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "vietnam_bubba"
+        },
+        {
+          "id": "c_college_to_home",
+          "text": "Pack Up and Take the Road Back to Greenbow",
+          "next": "homebound_road"
+        }
+      ]
+    },
+    "homebound_road": {
+      "id": "homebound_road",
+      "type": "scene",
+      "title": "Greenbow Ordinary",
+      "body": "Greenbow receives Forrest without a parade. The porch boards remember his weight. He fixes the hinge Mama would have fixed. He tips his hat at church. Neighbors speak gently around the empty place in conversation where Mama used to sit.\n\nJenny is a rumor on the wind—seen in Memphis, heard in a song, glimpsed in a magazine he does not buy. Some days he almost drives after her. Some days he mows the lawn twice because the first pass did not quiet his hands. History, elsewhere, is busy with helicopters and speeches. His county line holds.\n\nOrdinary life is not nothing. It is eggs, rain on the roof, a radio low in the kitchen. It is also a kind of waiting that can become a profession.\n\nWhen the days stack high enough to cast a shadow, what does he do with the waiting?",
+      "choices": [
+        {
+          "id": "c_home_wait",
+          "text": "Keep the Porch Light On and Wait for Jenny",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "homebound_years"
+        },
+        {
+          "id": "c_home_work",
+          "text": "Take Steady Work and Mind His Own Business",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -5
+            }
+          ],
+          "next": "homebound_years"
+        },
+        {
+          "id": "c_home_late_war",
+          "text": "Change His Mind and Enlist After All",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "vietnam_bubba"
+        }
+      ]
+    },
+    "homebound_years": {
+      "id": "homebound_years",
+      "type": "scene",
+      "title": "Years Without a Map",
+      "body": "Seasons stack like plates in a cupboard. Forrest carries feed sacks, paints fences, learns which neighbors pay on time. The war ends on television for other men. His hands grow a working man's map of calluses. At night the oak of childhood still stands in his mind, even if he does not walk there often.\n\nThen, one humid afternoon, a letter arrives in a hand that still looks like the girl under the tree. His name on the envelope is careful. The paper smells faintly of cigarette smoke and faraway rooms. He sets it on the kitchen table where the light can reach it.\n\nA letter can be a bridge. It can also be a door he refuses to open because opening it would demand shoes, a ticket, and a heart willing to be broken again.\n\nThe envelope waits. So does the rest of his smaller life.",
+      "choices": [
+        {
+          "id": "c_home_end_quiet",
+          "text": "Leave the Wider World Alone and Live This Small Life",
+          "next": "ending_homebound"
+        },
+        {
+          "id": "c_home_answer_jenny",
+          "text": "Open the Letter and Go to Her",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "jenny_house"
+        },
+        {
+          "id": "c_home_ignore_letter",
+          "text": "Leave the Letter Unopened on the Table",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -15
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -10
+            }
+          ],
+          "next": "ending_bus_stop_alone"
+        }
+      ]
+    },
+    "chase_jenny_city": {
+      "id": "chase_jenny_city",
+      "type": "scene",
+      "title": "City Lights, Wrong Doors",
+      "body": "The city does not care that Forrest once ran through Alabama fields. Neon hums. Buses sigh. He asks after Jenny in rooms that smell of smoke, beer, and perfume applied like armor. Sometimes he finds a stage and a girl who is almost her. Sometimes he finds an empty stool still warm.\n\nA bartender says she was here last week. A flyer shows a face that might be hers if hope is a kind of blur. He sleeps in cheap rooms where the pipes argue all night. He is not lost in the tourist way. He is lost in the loving way—which is lonelier, because he knows the name of what he cannot hold.\n\nOne morning a stranger asks if he needs directions. He says he is looking for a friend. It is the truest sentence he owns.\n\nDoes he keep hunting block by block, surrender the chase for Greenbow's quieter gravity, or put on a uniform when the search finally runs dry?",
+      "choices": [
+        {
+          "id": "c_city_keep_search",
+          "text": "Keep Searching Block by Block",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 10
+            }
+          ],
+          "next": "jenny_doorway"
+        },
+        {
+          "id": "c_city_go_home",
+          "text": "Give Up the Chase and Go Home to Greenbow",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -10
+            }
+          ],
+          "next": "homecoming"
+        },
+        {
+          "id": "c_city_enlist_shame",
+          "text": "When the Search Runs Dry, Enlist",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "vietnam_bubba"
+        }
+      ]
+    },
+    "vietnam_bubba": {
+      "id": "vietnam_bubba",
+      "type": "scene",
+      "title": "Bubba Blue",
+      "body": "Rain turns the world the color of old nickels. The jungle is not a football field; it does not cheer when Forrest moves. In the mud and the green dark he meets Benjamin Buford Blue—Bubba—who talks shrimp the way preachers talk heaven: detailed, certain, and somehow kind.\n\nBubba lists boats and waters and recipes until the war almost becomes a waiting room before a partnership. He says after this they will be businessmen. Forrest shakes on it because a promise is a clean thing in a dirty place, and because Bubba's hope makes the rain sound less like bullets practicing.\n\nLieutenant Dan drills them hard. Nights are wet. Days are wetter. Forrest thinks of Mama's chocolates and wonders which piece this is.\n\nBubba is still talking shrimp when the platoon settles into another uneasy rest. How does Forrest meet a friendship that arrives wearing a future?",
+      "choices": [
+        {
+          "id": "c_listen_bubba",
+          "text": "Listen Hard and Shake on the Shrimp Promise",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            }
+          ],
+          "next": "vietnam_ambush"
+        },
+        {
+          "id": "c_half_listen",
+          "text": "Nod Along but Keep His Mind on Getting Home",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -5
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "vietnam_ambush"
+        },
+        {
+          "id": "c_talk_jenny_war",
+          "text": "Tell Bubba About Jenny Instead of Shrimp",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 5
+            }
+          ],
+          "next": "vietnam_ambush"
+        }
+      ]
+    },
+    "vietnam_ambush": {
+      "id": "vietnam_ambush",
+      "type": "scene",
+      "title": "The Jungle Breaks",
+      "body": "The ambush arrives without polite warning. Gunfire stitches the rain. The air fills with shouts, mud spray, and the bright wrong smell of things burning that should not burn. Lieutenant Dan's orders cut through like a blade trying to sew panic back into a line.\n\nMen fall. Bubba's voice finds Forrest across the chaos—his name thrown like a rope. Forrest's legs remember every road they ever used to escape. His promise remembers every handshake. Courage, he learns in one long second, is not a feeling. It is a direction a man picks while afraid.\n\nHe can run back into the teeth of it and pull who he can. He can make Bubba his only map. He can freeze until someone else's bravery becomes his ambulance. Or he can flee without looking, and live with the looking-away forever.\n\nThe jungle does not care which story he wants. It only records what he does.",
+      "choices": [
+        {
+          "id": "c_save_platoon",
+          "text": "Run Back and Pull Who He Can to Safety",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 20
+            },
+            {
+              "op": "set",
+              "key": "war_hero",
+              "value": true
+            }
+          ],
+          "next": "hospital_ward"
+        },
+        {
+          "id": "c_only_bubba",
+          "text": "Find Bubba First—Even If He Leaves the Rest",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 5
+            },
+            {
+              "op": "set",
+              "key": "war_hero",
+              "value": false
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "hospital_ward"
+        },
+        {
+          "id": "c_freeze_ambush",
+          "text": "Freeze Until Someone Drags Him Out",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -15
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "war_hero",
+              "value": false
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "hospital_ward"
+        },
+        {
+          "id": "c_run_without_looking",
+          "text": "Run Without Looking Back",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -20
+            },
+            {
+              "op": "set",
+              "key": "war_hero",
+              "value": false
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "hospital_ward"
+        }
+      ]
+    },
+    "hospital_ward": {
+      "id": "hospital_ward",
+      "type": "scene",
+      "title": "White Sheets, Green Memory",
+      "body": "The hospital smells of bleach, rain that never finishes, and food that has given up on tasting like food. Outside, the war continues without asking Forrest's permission. Inside, Lieutenant Dan burns with a fury that has nowhere clean to sit. Dan speaks of destiny denied, of ancestors who died with dignity he believes has been stolen from him.\n\nA ping-pong paddle finds Forrest's hand. The ball's click becomes a small obedient war he can win—point by point, breath by breath. Nurses smile at his focus. Dan glares through his storms. At night Forrest hears Bubba's shrimp speech in the dark and wonders what a promise weighs when one partner cannot carry his half.\n\nRecovery is not only flesh. It is deciding what kind of man leaves this ward.\n\nDoes he sit with Dan's rage until it softens, lose himself in the fame of a bouncing ball, or go quiet and wait for discharge like weather?",
+      "choices": [
+        {
+          "id": "c_visit_dan",
+          "text": "Sit With Lieutenant Dan Through the Worst Days",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            }
+          ],
+          "next": "homecoming"
+        },
+        {
+          "id": "c_live_pingpong",
+          "text": "Pour Himself Into Ping-Pong Until Nothing Else Fits",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -5
+            }
+          ],
+          "next": "homecoming"
+        },
+        {
+          "id": "c_ward_shut_down",
+          "text": "Speak Little and Wait for Discharge",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -5
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "homecoming"
+        }
+      ]
+    },
+    "homecoming": {
+      "id": "homecoming",
+      "type": "scene",
+      "title": "Back in Greenbow",
+      "body": "Home is the same boards and a different silence. Mama's house holds Forrest's medals the way a polite guest holds a hat—carefully, not quite knowing where to set it down. The town says welcome in grocery aisles and church pews. At night the crickets sound like they never heard of Vietnam.\n\nBubba's voice still talks shrimp in Forrest's head when the dark gets long. Jenny is a missing season. Lieutenant Dan may yet find him again, bitterness and all. Forrest stands in the hallway where Mama used to call his name and feels the future arrange itself into debts: a promise, a love, a quiet that wants to swallow both.\n\nGreenbow will let him hide. It will also watch what he does next.\n\nBefore the days turn soft and avoidant, where does he aim his first honest step?",
+      "choices": [
+        {
+          "id": "c_to_bubba_grave",
+          "text": "Go Pay Respects and Face Bubba's Promise",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 5
+            }
+          ],
+          "next": "bubba_grave"
+        },
+        {
+          "id": "c_hunt_jenny_first",
+          "text": "Hunt for Jenny Before He Faces Anything Else",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "jenny_doorway"
+        },
+        {
+          "id": "c_hide_in_house",
+          "text": "Shut the Curtains and Stay Indoors",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -15
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "bubba_grave"
+        }
+      ]
+    },
+    "bubba_grave": {
+      "id": "bubba_grave",
+      "type": "scene",
+      "title": "A Promise in the Dirt",
+      "body": "Forrest stands where Bubba cannot stand. The air is ordinary American air—mowed grass, distant cars—and somehow that ordinariness hurts more than jungle rain. Bubba's shrimp speech returns complete: boats, nets, names of waters, a future sketched in mud by a man who believed talking could make it true.\n\nA promise is a kind of road that does not care if a man is tired. Forrest could buy a boat and keep his word until the sea itself answers. He could admit, aloud to a grave and to himself, that he cannot. He could put money toward someone else's hull and call that mercy, though mercy and escape sometimes wear the same coat.\n\nWind moves through the cemetery trees. His hands open and close as if already holding rope.\n\nWhat does he owe the dead—and what can the living still pay?",
+      "choices": [
+        {
+          "id": "c_keep_promise",
+          "text": "Buy a Boat and Keep His Word to Bubba",
+          "effects": [
+            {
+              "op": "set",
+              "key": "kept_promise",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 15
+            }
+          ],
+          "next": "shrimp_storm"
+        },
+        {
+          "id": "c_break_promise",
+          "text": "Admit He Cannot Do It—and Walk Away",
+          "effects": [
+            {
+              "op": "set",
+              "key": "kept_promise",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -20
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "promise_broken_fork"
+        },
+        {
+          "id": "c_give_boat_away",
+          "text": "Fund a Boat for Someone Else Instead",
+          "effects": [
+            {
+              "op": "set",
+              "key": "kept_promise",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 5
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "promise_broken_fork"
+        }
+      ]
+    },
+    "promise_broken_fork": {
+      "id": "promise_broken_fork",
+      "type": "scene",
+      "title": "The Word He Did Not Keep",
+      "body": "Without the boat, days stretch like a wet rope. Guilt sits on the porch like a dog that will not leave, eyes polite, presence permanent. Forrest still wakes sometimes expecting Bubba to finish a sentence about bait and tide.\n\nLieutenant Dan may yet call, looking for a purpose with salt on it. Jenny may knock, carrying her own unfinished weather. Or Forrest can stop moving entirely and let the unbroken promise become the whole story—an honest wound he refuses to bandage with action.\n\nThe town goes about its errands. He stands in the doorway between remorse and the next attempt at living.\n\nWhere does he put the energy he did not put into a hull?",
+      "choices": [
+        {
+          "id": "c_broken_to_jenny",
+          "text": "Put That Energy Into Finding Jenny",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "jenny_doorway"
+        },
+        {
+          "id": "c_broken_to_dan",
+          "text": "Stick Close to Lieutenant Dan Instead",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            }
+          ],
+          "next": "dan_years"
+        },
+        {
+          "id": "c_broken_end",
+          "text": "Carry the Guilt and Stop Trying to Outrun It",
+          "next": "ending_broken_promise"
+        }
+      ]
+    },
+    "shrimp_storm": {
+      "id": "shrimp_storm",
+      "type": "scene",
+      "title": "Jenny and the Storm",
+      "body": "Forrest names the boat after a girl who is not aboard, because love is stubborn that way. Lieutenant Dan learns the ropes with a bitterness that slowly turns useful—swearing at knots, then tying them better than Forrest. Bubba Gump begins as a joke he tells the water. The water does not laugh, but it listens.\n\nThen the sky goes wrong. Wind arrives like a judgment. Waves stand up like walls with white hair. Other boats do not come back. Theirs should not either, except luck—or Bubba, or Mama, or something without a name—keeps the hull under them until the world remembers how to be a harbor.\n\nDawn finds Forrest heavy with catch and lighter of certainty. Fortune, when it comes this violently, asks what he will do with it.\n\nRide the storm's aftermath with Dan? Cash out and quit the sea while luck still likes his face? Or—if the war left him more shadow than hero—push too far and learn what empty water costs?",
+      "choices": [
+        {
+          "id": "c_ride_with_dan",
+          "text": "Ride Out What Comes Next With Lieutenant Dan",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 5
+            }
+          ],
+          "next": "jenny_doorway"
+        },
+        {
+          "id": "c_sell_quick",
+          "text": "Sell the Catch and Quit the Sea While Ahead",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "jenny_doorway"
+        },
+        {
+          "id": "c_storm_fail",
+          "text": "Push Too Far and Lose the Boat to the Water",
+          "requires": [
+            {
+              "op": "eq",
+              "key": "war_hero",
+              "value": false
+            }
+          ],
+          "effects": [
+            {
+              "op": "set",
+              "key": "kept_promise",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "empty_harbor"
+        }
+      ]
+    },
+    "empty_harbor": {
+      "id": "empty_harbor",
+      "type": "scene",
+      "title": "Empty Harbor",
+      "body": "Forrest kept the shape of Bubba's dream long enough to watch the vessel take it to the bottom. Dan swears the sea is a crook. Forrest apologizes to a grave that cannot invoice him for failure. The slip where the boat should rock holds only reflected sky.\n\nThere is dignity in trying. There is also a hollow in his chest the exact size of a named hull. People on the pier avoid his eyes the way people avoid fresh grief—politely, and not for long.\n\nHe can call this the end of the shrimp story. He can still go looking for Jenny with salt still in his hair. He can start over beside Dan, two stubborn survivors short on luck and long on stubbornness.\n\nWhat remains after an honest wreck?",
+      "choices": [
+        {
+          "id": "c_empty_end",
+          "text": "Accept the Empty Slip as the End of This Story",
+          "next": "ending_empty_boat"
+        },
+        {
+          "id": "c_empty_to_jenny",
+          "text": "Go Looking for Jenny Anyway",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "jenny_doorway"
+        },
+        {
+          "id": "c_empty_to_dan",
+          "text": "Start Over Beside Lieutenant Dan",
+          "next": "dan_years"
+        }
+      ]
+    },
+    "dan_years": {
+      "id": "dan_years",
+      "type": "scene",
+      "title": "What Dan Builds",
+      "body": "Years pass in the company of a man who once wanted to die on a battlefield and instead learned to live on a pier. Forrest fishes, argues, shares silence thick as rope. Dan's anger weather-changes into something that can hold a future. Forrest's own future, oddly, becomes simpler: tide tables, coffee, the occasional joke that lands.\n\nJenny becomes a soft ache instead of a map. Some nights he almost tells Dan the whole oak-tree story. Some nights the water is enough conversation.\n\nThen life, being life, offers another fork: make this brotherhood his whole country; answer if Jenny writes; or one morning simply put one foot in front of the other until running becomes the point again.\n\nDan watches him the way a lieutenant watches a horizon. He does not order Forrest. He waits.",
+      "choices": [
+        {
+          "id": "c_dan_end",
+          "text": "Make This Brotherhood His Whole Life",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -10
+            }
+          ],
+          "next": "ending_lieutenant_bond"
+        },
+        {
+          "id": "c_dan_jenny_late",
+          "text": "When Jenny Writes, Go to Her",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "jenny_house"
+        },
+        {
+          "id": "c_dan_run",
+          "text": "One Morning, Simply Start Running",
+          "effects": [
+            {
+              "op": "set",
+              "key": "ran_america",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 20
+            }
+          ],
+          "next": "road_years"
+        }
+      ]
+    },
+    "jenny_doorway": {
+      "id": "jenny_doorway",
+      "type": "scene",
+      "title": "Jenny at the Door",
+      "body": "She arrives like weather Forrest prayed for and still does not know how to dress for. Thinner. Brighter. Tired in places faces should not show. For a second he is a child again under the oak, and then he is not—because time has put miles and wars and songs between his shoes and hers.\n\n\"I missed you, Forrest,\" she says, and the house remembers how to be young. She steps inside as if the doorway itself might change its mind. He smells road dust and faint perfume and the sharp clean fear of someone who has been running from more than buses.\n\nHe could welcome her with the simple open hands Mama taught him. He could ask where the years went, knowing answers may bruise. He could keep the door half closed because loving her has always been a risk with weather in it.\n\nShe watches his face for the verdict.",
+      "choices": [
+        {
+          "id": "c_welcome_jenny",
+          "text": "Welcome Her In Without Questions",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "jenny_night"
+        },
+        {
+          "id": "c_question_jenny",
+          "text": "Ask Where She Has Been All These Years",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 5
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "jenny_night"
+        },
+        {
+          "id": "c_cold_door",
+          "text": "Keep the Door Half Closed Against Getting Hurt",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -15
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "jenny_night"
+        }
+      ]
+    },
+    "jenny_night": {
+      "id": "jenny_night",
+      "type": "scene",
+      "title": "One Soft Night",
+      "body": "For a night the world shrinks to a bed, a window, and Jenny's breathing. She talks in fragments. She sleeps like someone finally allowed to put down a heavy bag. Forrest watches the dark and thinks of every road that led to this quiet.\n\nMorning brings her bag by the door. She is leaving again—afraid of the quiet, or of herself, or of a love that asks her to stay whole when she still feels broken in places he cannot reach. Her eyes ask him not to make this crueler than it already is.\n\nHe can let her go and wish her well, the hardest gentle thing. He can beg her to stay forever and try to hold a storm still. He can say goodbye like it does not hurt, which is a lie with good posture. Or he can follow her down the road at once, turning love into a chase before breakfast is cold.\n\nShe waits with one hand on the door.",
+      "choices": [
+        {
+          "id": "c_let_jenny_go",
+          "text": "Let Her Go—and Wish Her Well Out Loud",
+          "effects": [
+            {
+              "op": "set",
+              "key": "stayed_with_jenny",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "run_or_root"
+        },
+        {
+          "id": "c_beg_jenny_stay",
+          "text": "Beg Her to Stay Forever",
+          "effects": [
+            {
+              "op": "set",
+              "key": "stayed_with_jenny",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 20
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "jenny_forced_stay"
+        },
+        {
+          "id": "c_cold_goodbye",
+          "text": "Say Goodbye Like It Does Not Hurt",
+          "effects": [
+            {
+              "op": "set",
+              "key": "stayed_with_jenny",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "run_or_root"
+        },
+        {
+          "id": "c_follow_immediately",
+          "text": "Follow Her Down the Road Before She Vanishes",
+          "effects": [
+            {
+              "op": "set",
+              "key": "stayed_with_jenny",
+              "value": false
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "chase_after_night"
+        }
+      ]
+    },
+    "jenny_forced_stay": {
+      "id": "jenny_forced_stay",
+      "type": "scene",
+      "title": "A House Too Small",
+      "body": "She stays—for a while. Love and fear share the kitchen. Some days she laughs and the house expands. Some days she leaves for hours and returns with weather in her eyes. Forrest cooks. He waits. He learns that holding a person is not the same as holding their storm still.\n\nNeighbors notice the lights on late. Dan, if he calls, hears the strain in Forrest's voice and does not name it. Jenny apologizes without always knowing for what. Forrest forgives without always knowing how.\n\nThis can be years. It can also be a season that teaches him the difference between devotion and possession.\n\nDoes he endure the fragile weather together, finally release her with kindness, or discover a child on the way and let that change the math of staying?",
+      "choices": [
+        {
+          "id": "c_fragile_endure",
+          "text": "Endure the Fragile Years Beside Her",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "ending_jenny_fragile"
+        },
+        {
+          "id": "c_fragile_release",
+          "text": "Finally Release Her—Kindly, Completely",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 5
+            }
+          ],
+          "next": "run_or_root"
+        },
+        {
+          "id": "c_fragile_to_child",
+          "text": "When He Learns She Is Pregnant, Stay for Good",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "little_forrest"
+        }
+      ]
+    },
+    "chase_after_night": {
+      "id": "chase_after_night",
+      "type": "scene",
+      "title": "Always Almost",
+      "body": "Forrest catches glimpses: a bus window fogged with breath, a diner booth with a lipstick glass, a song on a truck radio that might be hers if hope has perfect pitch. Each almost feeds the next mile. Motels blur. Maps soften at the folds.\n\nDevotion becomes motion. Rest becomes betrayal. He tells strangers he is looking for a friend, and they nod as if America is full of such errands.\n\nSooner or later the chase demands a shape: turn it into a life of running; stop and return to whatever boat or duty still knows his name; or find her and refuse to leave her side, storm and all.\n\nAnother highway unrolls its tongue. His shoes are already listening.",
+      "choices": [
+        {
+          "id": "c_chase_forever",
+          "text": "Turn the Chase Into a Life of Running",
+          "effects": [
+            {
+              "op": "set",
+              "key": "ran_america",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 25
+            }
+          ],
+          "next": "road_years"
+        },
+        {
+          "id": "c_chase_give_up",
+          "text": "Stop Chasing and Go Back to the Boat",
+          "requires": [
+            {
+              "op": "truthy",
+              "key": "kept_promise"
+            }
+          ],
+          "next": "run_or_root"
+        },
+        {
+          "id": "c_chase_fragile_find",
+          "text": "Find Her and Refuse to Leave Her Side",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "jenny_forced_stay"
+        }
+      ]
+    },
+    "run_or_root": {
+      "id": "run_or_root",
+      "type": "scene",
+      "title": "Run or Root",
+      "body": "After Jenny leaves—or after Forrest lets the idea of her leave—the house grows too many quiet corners. The refrigerator hums like a lonely engine. His legs remember the old medicine: road, breath, horizon repeating until thought thins out.\n\nIf the boat still exists, it remembers the tide and Dan's swearing. Somewhere Jenny is still becoming someone he may meet again, or may not. Mama's chocolate box sits in memory with one piece left unnamed.\n\nHe can start running and refuse to stop until the country runs out of asphalt. He can stay with the boat and let work be love's substitute. He can go looking for Jenny across state lines. Or he can sit on a bench and wait for life to arrive like a bus that may never come.\n\nThe porch step creaks under his weight. The next true motion is waiting to be chosen.",
+      "choices": [
+        {
+          "id": "c_run_america",
+          "text": "Start Running—and Do Not Plan to Stop",
+          "effects": [
+            {
+              "op": "set",
+              "key": "ran_america",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 25
+            }
+          ],
+          "next": "road_years"
+        },
+        {
+          "id": "c_stay_boat",
+          "text": "Stay With the Boat and Lieutenant Dan",
+          "requires": [
+            {
+              "op": "truthy",
+              "key": "kept_promise"
+            }
+          ],
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "boat_years"
+        },
+        {
+          "id": "c_search_jenny_now",
+          "text": "Go Looking for Jenny Across the Country",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "chase_after_night"
+        },
+        {
+          "id": "c_sit_bench_early",
+          "text": "Sit on the Bench and Wait for Life to Arrive",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -20
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "ending_bus_stop_alone"
+        }
+      ]
+    },
+    "boat_years": {
+      "id": "boat_years",
+      "type": "scene",
+      "title": "Years on the Water",
+      "body": "Bubba Gump becomes a name people say with money in their mouths. Shirts appear. Lines form. Dan stands taller in ways that are not about legs—pride rebuilt out of salt and stubborn ledgers. Forrest is rich in ways Mama would have called surprising, then practical, then something like grace.\n\nAnd still Jenny is the missing season. Success tastes like shrimp and sounds like a promise kept for a friend who cannot taste it with him. At night the pier lights tremble on black water, and he wonders whether fortune without her is a feast or a museum.\n\nA letter may yet come. Dan may yet be enough. The empty chair across from him may yet become the whole truth he accepts.\n\nWhat does he do with a life that worked—except for the part that mattered most?",
+      "choices": [
+        {
+          "id": "c_boat_alone_end",
+          "text": "Accept the Fortune—and the Empty Chair",
+          "requires": [
+            {
+              "op": "lte",
+              "key": "devotion_jenny",
+              "value": 55
+            }
+          ],
+          "next": "ending_shrimp_alone"
+        },
+        {
+          "id": "c_boat_dan_end",
+          "text": "Let Partnership With Dan Be Enough",
+          "next": "ending_lieutenant_bond"
+        },
+        {
+          "id": "c_boat_letter",
+          "text": "When Her Letter Comes, Leave the Pier and Go",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "letter_from_jenny"
+        }
+      ]
+    },
+    "road_years": {
+      "id": "road_years",
+      "type": "scene",
+      "title": "Across America",
+      "body": "Forrest runs because stopping asks questions his mouth cannot answer. Followers gather like weather and blow away the same way. Deserts bleach his shirt. Mountains teach his lungs new mathematics. Diners learn his silence. Rain becomes a companion that does not need conversation.\n\nPeople ask why he runs. He tells the truth as he knows it: he just felt like running. The country keeps offering asphalt. His heart keeps accepting. Somewhere in the blur, Jenny remains a bright needle in a map too large to fold.\n\nOne afternoon a stranger jogs up beside him long enough to press a letter into his hand—postage and miracle sharing credit. Forrest's name looks small on the envelope. The road ahead looks endless.\n\nDoes he read it and turn toward home, tuck it away for later miles, or refuse the interruption entirely?",
+      "choices": [
+        {
+          "id": "c_read_go_home",
+          "text": "Read the Letter and Turn Toward Home",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "letter_from_jenny"
+        },
+        {
+          "id": "c_run_more",
+          "text": "Tuck the Letter Away and Keep Running for Now",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "letter_delayed"
+        },
+        {
+          "id": "c_never_stop",
+          "text": "Drop the Letter in a River and Run On",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -20
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "ending_forever_run"
+        }
+      ]
+    },
+    "letter_delayed": {
+      "id": "letter_delayed",
+      "type": "scene",
+      "title": "Too Many Miles Later",
+      "body": "Forrest opens the letter weeks late, on a motel bedspread the color of weak tea. Jenny's words are patient and tired. There is a boy in them. There is a request that sounds like a porch light left on for someone who might still know the way.\n\nGuilt arrives on time even when he does not. He pictures a small chair, a small plate, a life that continued while he counted highway stripes. The road outside the motel still calls—habit is a powerful religion—but the letter has changed the temperature of the air.\n\nHe can go home as fast as buses allow. He can decide he has waited too long to matter. He can return to a bench and hope she finds him, which is a kind of courage and a kind of cowardice sharing a seat.\n\nThe letter's last line waits for an answer only his feet can give.",
+      "choices": [
+        {
+          "id": "c_late_go",
+          "text": "Go Home as Fast as Buses Allow",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "jenny_house"
+        },
+        {
+          "id": "c_late_too_late",
+          "text": "Decide He Has Waited Too Long to Matter",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 10
+            }
+          ],
+          "next": "ending_forever_run"
+        },
+        {
+          "id": "c_late_bench",
+          "text": "Return to the Bench and Hope She Finds Him",
+          "next": "ending_bus_stop_alone"
+        }
+      ]
+    },
+    "letter_from_jenny": {
+      "id": "letter_from_jenny",
+      "type": "scene",
+      "title": "Jenny's Letter",
+      "body": "The letter is plain and careful, like someone setting a table for a guest they are not sure will come. Jenny wants to see him. She has something to tell him that will not fit comfortably in ink. Reading it, Forrest feels every mile he ever ran rearrange itself into a single direction: toward her voice.\n\nThe road behind him is long. The road home is suddenly short—and somehow harder, because arriving means facing whatever grew in his absence.\n\nHe can go without delay. He can finish one more stretch of road first, bargaining with destiny like a man who thinks miles can be saved for later. Or he can not answer, and let silence become the last thing he gives her.\n\nPaper is light. The choice is not.",
+      "choices": [
+        {
+          "id": "c_go_now",
+          "text": "Go to Her Without Delay",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            }
+          ],
+          "next": "jenny_house"
+        },
+        {
+          "id": "c_finish_run_first",
+          "text": "Finish One More Stretch of Road First",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "letter_delayed"
+        },
+        {
+          "id": "c_ignore_letter",
+          "text": "Do Not Answer the Letter",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -20
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "ending_forever_run"
+        }
+      ]
+    },
+    "jenny_house": {
+      "id": "jenny_house",
+      "type": "scene",
+      "title": "Jenny's Door Again",
+      "body": "Her building smells of cooking and laundry soap and lives stacked on lives. Jenny looks older in the honest way love notices—not ruined, just true. The apartment is small and clean. On the floor, toys make a soft argument for the future.\n\n\"Forrest,\" she says, and his name in her mouth still undoes something careful in his chest. \"I have someone I want you to meet.\"\n\nTime folds. He is on a bus. He is under an oak. He is in rain with Bubba talking shrimp. He is running past strangers who want a reason. All of it leads to this doorway and a truth he has not yet seen with his eyes.\n\nDoes he meet what waits with an open heart? Ask why she waited so long, even if the question stings? Or step back, overwhelmed, because fatherhood—if that is what this is—arrives larger than any football stadium?",
+      "choices": [
+        {
+          "id": "c_meet_son",
+          "text": "Meet Him With an Open Heart",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "little_forrest"
+        },
+        {
+          "id": "c_ask_why_now",
+          "text": "Ask Why She Waited So Long to Tell Him",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -5
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "little_forrest"
+        },
+        {
+          "id": "c_retreat_door",
+          "text": "Step Back, Overwhelmed by the Doorway",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "little_forrest"
+        }
+      ]
+    },
+    "little_forrest": {
+      "id": "little_forrest",
+      "type": "scene",
+      "title": "Little Forrest",
+      "body": "The boy has Forrest's name and a face that makes clocks irrelevant. Jenny watches Forrest watch him, measuring the room for safety. Fatherhood arrives not as a speech but as a small hand, a small chair, a question about why the sky turns pink.\n\nForrest thinks of Mama. He thinks of braces in the dirt. He thinks of every time he ran toward something or away from it. This boy does not need a hero from television. He needs someone who shows up for breakfast.\n\nJenny's illness—if it has already begun its quiet work—hangs at the edge of the room like weather not yet named. For now there is only the boy, and the way he looks at Forrest as if Forrest has always been on his way here.\n\nHow does Forrest step into the name the boy already carries?",
+      "choices": [
+        {
+          "id": "c_be_father",
+          "text": "Be His Father Without Hesitation",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 10
+            }
+          ],
+          "next": "vows_and_illness"
+        },
+        {
+          "id": "c_father_only",
+          "text": "Focus on the Boy More Than the Tangled Past",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "vows_and_illness"
+        },
+        {
+          "id": "c_need_time",
+          "text": "Say He Needs Time to Understand",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "vows_and_illness"
+        }
+      ]
+    },
+    "vows_and_illness": {
+      "id": "vows_and_illness",
+      "type": "scene",
+      "title": "Vows and Weather",
+      "body": "There is a wedding that feels like a repaired porch—simple boards, honest nails, sky enough. Jenny wears a smile that costs her something and still gives it freely. Little Forrest fidgets in new shoes. For a day, joy is louder than fear.\n\nThen illness arrives without interest in vows. Jenny grows light in Forrest's arms. Doctors use careful words. He learns the schedule of medicines and the grammar of waiting rooms. The boy asks questions Forrest answers as truly as he can without breaking the world in half.\n\nHe stands at the edge of the story's last honest fork: marry the caretaking to the end; pour everything into the child even if the past stays jagged; or retreat into silence when grief enters the house like a third person.\n\nLove, here, is not a feeling. It is the next hour.",
+      "choices": [
+        {
+          "id": "c_care_through",
+          "text": "Marry Her and Care for Her to the End",
+          "effects": [
+            {
+              "op": "add",
+              "key": "devotion_jenny",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 10
+            }
+          ],
+          "next": "life_reckoning"
+        },
+        {
+          "id": "c_father_focus_end",
+          "text": "Pour Everything Into Raising His Son",
+          "effects": [
+            {
+              "op": "add",
+              "key": "duty",
+              "value": 15
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "life_reckoning"
+        },
+        {
+          "id": "c_retreat_grief",
+          "text": "Retreat Into Silence When Grief Arrives",
+          "effects": [
+            {
+              "op": "add",
+              "key": "momentum",
+              "value": -15
+            },
+            {
+              "op": "set",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": "life_reckoning"
+        }
+      ]
+    },
+    "life_reckoning": {
+      "id": "life_reckoning",
+      "type": "scene",
+      "title": "What Your Choices Made",
+      "body": "The bus stop waits the way it always has—paint faded, bench warm, road shimmering. So does the oak in memory. So does a boy with a book bag and a future that will not need metal on his legs. Forrest's life has been a string of ordinary decisions that somehow became a country: enlist or stay, save or flee, keep a promise or set it down, let Jenny go or try to hold the storm, run or root, answer a letter or become the silence after it.\n\nHe takes stock the way Mama might have—gently, without lying. What he kept. What he ran from. What loved him back anyway.\n\nIf he stayed true through the long weather, one ending still fits like a well-worn shoe. If he stepped off that path, other endings wait—fatherhood's quiet work, the life his detours carved, or a bench that asks him only to sit and stop pretending he is not tired.\n\nThe bus is coming. Which life does he claim before the doors open?",
+      "choices": [
+        {
+          "id": "c_ending_canon",
+          "text": "Claim the Life He Stayed True To",
+          "requires": [
+            {
+              "op": "eq",
+              "key": "canon_path",
+              "value": true
+            },
+            {
+              "op": "truthy",
+              "key": "kept_promise"
+            },
+            {
+              "op": "truthy",
+              "key": "stayed_with_jenny"
+            },
+            {
+              "op": "truthy",
+              "key": "ran_america"
+            },
+            {
+              "op": "truthy",
+              "key": "war_hero"
+            },
+            {
+              "op": "gte",
+              "key": "devotion_jenny",
+              "value": 55
+            },
+            {
+              "op": "gte",
+              "key": "duty",
+              "value": 50
+            }
+          ],
+          "next": "ending_canon_bench"
+        },
+        {
+          "id": "c_ending_quiet_father",
+          "text": "Claim the Quiet Work of Fatherhood",
+          "requires": [
+            {
+              "op": "eq",
+              "key": "canon_path",
+              "value": false
+            },
+            {
+              "op": "gte",
+              "key": "duty",
+              "value": 45
+            },
+            {
+              "op": "gte",
+              "key": "devotion_jenny",
+              "value": 40
+            }
+          ],
+          "next": "ending_quiet_father"
+        },
+        {
+          "id": "c_ending_detour",
+          "text": "Accept the Life His Detours Made",
+          "requires": [
+            {
+              "op": "eq",
+              "key": "canon_path",
+              "value": false
+            }
+          ],
+          "next": [
+            {
+              "when": [
+                {
+                  "op": "gte",
+                  "key": "momentum",
+                  "value": 70
+                },
+                {
+                  "op": "eq",
+                  "key": "ran_america",
+                  "value": true
+                }
+              ],
+              "goto": "ending_forever_run"
+            },
+            {
+              "when": [
+                {
+                  "op": "truthy",
+                  "key": "kept_promise"
+                },
+                {
+                  "op": "lte",
+                  "key": "devotion_jenny",
+                  "value": 50
+                }
+              ],
+              "goto": "ending_shrimp_alone"
+            },
+            {
+              "when": [
+                {
+                  "op": "gte",
+                  "key": "devotion_jenny",
+                  "value": 70
+                },
+                {
+                  "op": "eq",
+                  "key": "ran_america",
+                  "value": false
+                }
+              ],
+              "goto": "ending_jenny_fragile"
+            },
+            {
+              "when": [
+                {
+                  "op": "eq",
+                  "key": "kept_promise",
+                  "value": false
+                },
+                {
+                  "op": "eq",
+                  "key": "war_hero",
+                  "value": true
+                }
+              ],
+              "goto": "ending_broken_promise"
+            },
+            {
+              "when": [
+                {
+                  "op": "eq",
+                  "key": "war_hero",
+                  "value": false
+                }
+              ],
+              "goto": "ending_war_shadow"
+            },
+            {
+              "when": [
+                {
+                  "op": "truthy",
+                  "key": "kept_promise"
+                }
+              ],
+              "goto": "ending_lieutenant_bond"
+            }
+          ],
+          "else": "ending_bus_stop_alone"
+        },
+        {
+          "id": "c_ending_bench_wait",
+          "text": "Just Sit on the Bench and Let the Bus Come",
+          "next": "ending_bus_stop_alone"
+        }
+      ]
+    },
+    "ending_canon_bench": {
+      "id": "ending_canon_bench",
+      "type": "ending",
+      "endingKey": "canon_bench",
+      "title": "The School Bus",
+      "body": "Jenny's illness takes her with a gentleness that still feels unfair. Forrest keeps his promise to her the way he kept Bubba's—by showing up every ordinary day, by making breakfast, by answering a boy's questions without hurry.\n\nLittle Forrest grows into shoes and homework and a laugh that startles the quiet house into life again. On a bright morning Forrest walks him to the bus. The boy does not need braces. He waves as if the future is a friendly dog. The doors close with that same tired accordion sigh Forrest heard a lifetime ago.\n\nForrest sits a moment on a familiar bench, suitcase of memory beside him, and understands what Mama meant and what she could not have known: love was never a finish line. It was the whole road—run, waited, kept, forgiven, and finally handed forward like a book still warm from his hands.\n\nThe bus carries his name into a day he will not control. For once, that feels like hope.",
+      "choices": []
+    },
+    "ending_forever_run": {
+      "id": "ending_forever_run",
+      "type": "ending",
+      "endingKey": "forever_run",
+      "title": "No Finish Line",
+      "body": "Forrest becomes a rumor with good shoes. Towns learn his silhouette before his name. Jenny's letter—answered or not—becomes another mile marker he passes without stopping long enough for the dust to settle.\n\nPeople ask why he runs. He tells the truth as he knows it: he just felt like running. Some follow for a week. Some write songs. None of them can give him a reason better than motion itself.\n\nThe country keeps offering asphalt. His heart keeps accepting. Somewhere behind him a porch light may still burn. Ahead, there is only the next rise in the road, and the strange peace of a man who chose unfinishedness as his home.",
+      "choices": []
+    },
+    "ending_shrimp_alone": {
+      "id": "ending_shrimp_alone",
+      "type": "ending",
+      "endingKey": "shrimp_alone",
+      "title": "Fortune's Empty Chair",
+      "body": "Bubba Gump feeds strangers from coast to coast. Lieutenant Dan finds a kind of peace money cannot fully explain, though money does not hurt. Forrest has more than Mama ever imagined, and he tips well because Mama would have wanted the world treated kindly.\n\nAt dinner the chair across from him stays polite and vacant. Success tastes like shrimp and sounds like a promise kept for a friend who cannot raise a glass. Forrest toasts Bubba anyway. The ice clicks. The harbor lights tremble.\n\nIt is not a tragedy exactly. It is a feast with one missing guest who was the point of the feast.",
+      "choices": []
+    },
+    "ending_homebound": {
+      "id": "ending_homebound",
+      "type": "ending",
+      "endingKey": "homebound",
+      "title": "The County Line",
+      "body": "Forrest never wears the war. He never names a boat for a girl who left. Greenbow keeps him the way a porch keeps rain off the door—simply, without applause.\n\nIt is not a small life if he lives it kindly. It is eggs on Sunday, a repaired hinge, a wave to the mailman. It is also, on quiet nights, a wondering what the chocolates would have been if he had reached farther into the box.\n\nHe sleeps in the house Mama loved. Outside, the county line holds. Inside, he has chosen enough.",
+      "choices": []
+    },
+    "ending_jenny_fragile": {
+      "id": "ending_jenny_fragile",
+      "type": "ending",
+      "endingKey": "jenny_fragile",
+      "title": "Held and Unsteady",
+      "body": "Forrest keeps Jenny close enough to share mornings and far enough that fear still finds corners. Some seasons she stays. Some she frays. Love here is not a movie vow; it is a daily negotiation with damage, with apologies, with the decision to make coffee anyway.\n\nHe does not get the clean ending. He gets the harder mercy: tonight she is in the other room, and he is not alone, and neither is she. The oak of childhood would recognize this shelter—imperfect, real, still standing.",
+      "choices": []
+    },
+    "ending_broken_promise": {
+      "id": "ending_broken_promise",
+      "type": "ending",
+      "endingKey": "broken_promise",
+      "title": "The Unkept Word",
+      "body": "Bubba's speech returns in grocery aisles and rain. Without the boat, the promise has nowhere to live but inside Forrest's chest, where it scrapes like a shell.\n\nHe is alive. That is not nothing. It is also not the partnership he shook on in the jungle while the sky leaked. Some debts cannot be paid late; they can only be carried, politely, for the rest of a life that kept going without them.",
+      "choices": []
+    },
+    "ending_quiet_father": {
+      "id": "ending_quiet_father",
+      "type": "ending",
+      "endingKey": "quiet_father",
+      "title": "Homework and Porch Light",
+      "body": "History will not put Forrest's name on its loud pages. His name is on permission slips, lunch bags, and a boy who asks why the sky turns pink.\n\nJenny may be gone or nearly gone. What remains is the work she trusted him with. He does it without speeches. He does it until the bus comes, and again the next morning, and again, until showing up becomes the kind of destiny Mama would have understood.",
+      "choices": []
+    },
+    "ending_lieutenant_bond": {
+      "id": "ending_lieutenant_bond",
+      "type": "ending",
+      "endingKey": "lieutenant_bond",
+      "title": "Two Men and a Horizon",
+      "body": "Forrest and Lieutenant Dan outlive the worst versions of themselves. The pier becomes a kind of church. Arguments become language. Silence becomes trust thick enough to lean on.\n\nJenny is a bright ache Forrest no longer chases across state lines. What he has instead is a brotherhood forged where orders failed and loyalty did not. At sunset the water looks almost gentle. Dan nods at the horizon. Forrest nods back. For once, no one needs to run.",
+      "choices": []
+    },
+    "ending_war_shadow": {
+      "id": "ending_war_shadow",
+      "type": "ending",
+      "endingKey": "war_shadow",
+      "title": "Rain That Stays",
+      "body": "The jungle never fully returns Forrest's sleep. Fireworks sound like unfinished sentences. He goes through days like a man borrowing someone else's calm, returning it wrinkled.\n\nPeople call him lucky for coming home. Luck, he learns, is uneven weather. Some storms follow him inland and sit politely at breakfast, waiting for a chair he never meant to offer. He lives anyway. Living, some years, is the brave part.",
+      "choices": []
+    },
+    "ending_bus_stop_alone": {
+      "id": "ending_bus_stop_alone",
+      "type": "ending",
+      "endingKey": "bus_stop_alone",
+      "title": "The Bench Without Her",
+      "body": "Forrest waits where stories are supposed to find him. Buses come and go with their accordion sighs. Strangers share chocolate and leave with polite nods. Jenny does not arrive.\n\nMaybe she wrote. Maybe he did not answer. Maybe life simply placed them on different schedules, two clocks that never again struck the same hour. The suitcase stays closed. The bench stays honest.\n\nHe sits until the light thins. It is not the ending he wanted. It is the ending he chose by waiting for a bus that was never coming for two.",
+      "choices": []
+    },
+    "ending_college_stay": {
+      "id": "ending_college_stay",
+      "type": "ending",
+      "endingKey": "college_stay",
+      "title": "Practice Lights",
+      "body": "Forrest remains a figure on the sideline of Alabama evenings—whistle, clipboard, the smell of cut grass after rain. Boys learn to run because he shows them how without making it a speech. On Saturdays the stadium still rises like weather, and he feels a quieter pride than fame ever offered.\n\nThe wider war, the wider fortune, the wider heartbreak: they belong to other lives in other boxes of chocolate. His keeps the field lights humming and the county proud enough. At night he walks the empty stands and, for a moment, hears Jenny in the wind—then coaches himself back to the next practice.",
+      "choices": []
+    },
+    "ending_empty_boat": {
+      "id": "ending_empty_boat",
+      "type": "ending",
+      "endingKey": "empty_boat",
+      "title": "Honest and Empty",
+      "body": "Forrest kept faith with Bubba's dream long enough to lose the hull to weather and bad luck. Dan swears the sea is a crook. Forrest nods, because nodding is a kind of prayer when words feel too heavy.\n\nThere is dignity in the attempt. There is also an empty slip where a named boat should rock, reflecting a sky that does not apologize. He walks home lighter of fortune, heavier of having tried. Somewhere, Bubba's speech continues without a boat to land on. Forrest listens anyway. Listening is what he has left to give.",
+      "choices": []
+    }
+  }
+}
