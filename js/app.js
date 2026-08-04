@@ -16,6 +16,7 @@ import {
   storageKeyFor,
   storyJsonUrl,
 } from "./catalog.js";
+import { trackEvent } from "./analytics.js";
 
 const el = {
   brand: document.querySelector("#brand-name"),
@@ -93,6 +94,13 @@ function renderEnding() {
   }
   el.endingKey.textContent = `Ending: ${node.endingKey || node.id}`;
   el.storyline.textContent = buildStoryline(story, state);
+  if (!renderEnding._tracked || renderEnding._tracked !== state.endingKey) {
+    trackEvent("story_ending", {
+      storyId: story.id,
+      endingKey: state.endingKey || node.id,
+    });
+    renderEnding._tracked = state.endingKey;
+  }
 }
 
 function updateResumeBanner() {
@@ -183,6 +191,7 @@ async function boot() {
     const saved = loadState(storageKeyFor(story), story);
     state = saved || createNewState(story);
     if (!saved) persist();
+    trackEvent("story_open", { storyId: story.id });
     render();
 
     // Soft hint if save existed at boot

@@ -1,4 +1,5 @@
 import { loadCatalog, playUrl } from "./catalog.js";
+import "./analytics.js";
 
 const el = {
   brand: document.querySelector("#brand-name"),
